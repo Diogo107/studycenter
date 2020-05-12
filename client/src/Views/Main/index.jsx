@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
 import './style.scss';
+//Components
+import Dashboard from '../Dashboard';
+import Chat from '../Chat';
+//Routes
+import { BrowserRouter, Switch, Route, Redirect, Link } from 'react-router-dom';
 
 class index extends Component {
 	render() {
-		return;
-		<div>
-			;<div>Dashboard</div>;<div>Dashboard</div>;<div>Dashboard</div>;
-			<div>Dashboard</div>;<div>Dashboard</div>;<div>Dashboard</div>;
-			<div>Dashboard</div>;<div>Dashboard</div>;<div>Dashboard</div>;
-			<div>Dashboard</div>;<div>Dashboard</div>;<div>Dashboard</div>;
-			<div>Dashboard</div>;<div>Dashboard</div>;<div>Dashboard</div>;
-			<div>Dashboard</div>;<div>Dashboard</div>;<div>Dashboard</div>;
-			<div>Dashboard</div>;<div>Dashboard</div>;<div>Dashboard</div>;
-			<div>Dashboard</div>;<div>Dashboard</div>;<div>Dashboard</div>;
-		</div>;
+		return (
+			<div className="Main">
+				<Route
+					path="/dashboard/overview"
+					render={(props) => <Dashboard {...props} />}
+				/>
+				<Route path="/dashboard/chat" render={(props) => <Chat {...props} />} />
+			</div>
+		);
 	}
 }
 

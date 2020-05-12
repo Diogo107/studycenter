@@ -1,0 +1,40 @@
+.Evaluation__Component {
+	padding: 1em;
+	display: flex;
+	justify-content: space-evenly;
+	align-content: center;
+	height: 100%;
+	.Left {
+		background-color: grey;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
+		width: 45%;
+		img {
+			width: 25px;
+		}
+		.Behaviour__Rating {
+			& > div {
+				display: flex;
+				justify-content: space-evenly;
+			}
+		}
+		.Achievement__Rating {
+			& > div {
+				display: flex;
+				justify-content: space-evenly;
+			}
+		}
+	}
+	.Image {
+		width: 45%;
+		margin: auto;
+		display: flex;
+		justify-content: space-evenly;
+		align-content: center;
+		img {
+			padding: 1em;
+			width: 100%;
+		}
+	}
+}

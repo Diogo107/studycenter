@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.scss';
 import NavBar from './Components/NavBar';
 import SignIn from './Views/Auth/SignIn';
-import Dashboard from './Views/Main';
+import Main from './Views/Main';
 import Sidebar from './Components/Sidebar';
 import Footer from './Components/Footer';
 import { loadUserInformation } from './Services/authentication';
@@ -72,7 +72,7 @@ class App extends Component {
 								<Route
 									path="/dashboard/"
 									render={(props) => (
-										<Dashboard
+										<Main
 											user={this.state.user}
 											updateUserInformation={this.updateUserInformation}
 											{...props}

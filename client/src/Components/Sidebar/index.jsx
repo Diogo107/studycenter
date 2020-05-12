@@ -32,31 +32,31 @@ export default class index extends Component {
 		return (
 			<div className="sidebar">
 				<div className="sidebar__item">
-					<Link to="/">Geral</Link>
+					<Link to="/dashboard/overview">Geral</Link>
 				</div>
 				<div className="sidebar__item">
-					<Link to="/finance">Chat</Link>
+					<Link to="/dashboard/chat">Chat</Link>
 				</div>
 				<div className="sidebar__item">
-					<Link to="/profile">Dicionário</Link>
+					<Link to="/dashboard/dictionary">Dicionário</Link>
 				</div>
 				<div className="sidebar__item">
-					<Link to="/post">Resumos</Link>
+					<Link to="/dashboard/abstracts">Resumos</Link>
 				</div>
 				<div className="sidebar__item">
-					<Link to="/schedule">Exercícios</Link>
+					<Link to="/dashboard/exercises">Exercícios</Link>
 				</div>
 				<div className="sidebar__item">
-					<Link to="/services">FAQ's</Link>
+					<Link to="/dashboard/faqs">FAQ's</Link>
 				</div>
 				<div className="sidebar__item">
-					<Link to="/services">Desafio Diário</Link>
+					<Link to="/dashboard/daily-challenge">Desafio Diário</Link>
 				</div>
 				<div className="sidebar__item">
-					<Link to="/services">Artigos</Link>
+					<Link to="/dashboard/articles">Artigos</Link>
 				</div>
 				<div className="sidebar__item">
-					<Link to="/services">Inserir</Link>
+					<Link to="/dashboard/insert">Inserir</Link>
 				</div>
 
 				<Form className="signout__button" onSubmit={this.handleSignOut}>
