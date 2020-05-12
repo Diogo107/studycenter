@@ -3,7 +3,6 @@ import { Form, Button } from 'react-bootstrap';
 import { signIn } from './../../../Services/authentication';
 import TextField from '@material-ui/core/TextField';
 import './style.scss';
-import Apartment from '../../../asset/images/apartment.png';
 import { Redirect } from 'react-router-dom';
 
 export default class index extends Component {
