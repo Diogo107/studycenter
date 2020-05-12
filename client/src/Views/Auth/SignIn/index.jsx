@@ -7,47 +7,86 @@ import Apartment from '../../../asset/images/apartment.png';
 import { Redirect } from 'react-router-dom';
 
 export default class index extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loaded: false,
-      email: '',
-      passwordHash: ''
-    };
-    this.componentDidMount = this.componentDidMount.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.sendMessage = this.sendMessage.bind(this);
-  }
+	constructor(props) {
+		super(props);
+		this.state = {
+			loaded: false,
+			email: '',
+			passwordHash: '',
+		};
+		this.componentDidMount = this.componentDidMount.bind(this);
+		this.handleInputChange = this.handleInputChange.bind(this);
+		this.sendMessage = this.sendMessage.bind(this);
+	}
 
-  async componentDidMount() {
-    console.log('this is the sign in', this.props);
-  }
+	async componentDidMount() {
+		console.log('this is the sign in', this.props);
+	}
 
-  async sendMessage(event) {
-    // ...
-    event.preventDefault();
-    const { email, passwordHash } = this.state;
-    const user = await signIn({ email, passwordHash });
-    console.log('user', user);
-    this.props.updateUserInformation(user);
-    Redirect('/');
-  }
+	async sendMessage(event) {
+		event.preventDefault();
+		const { email, passwordHash } = this.state;
+		const user = await signIn({ email, passwordHash });
+		console.log('user', user);
+		this.props.updateUserInformation(user);
+		this.props.history.push('/dashboard/overview');
+	}
 
-  handleInputChange(event) {
-    const value = event.target.value;
-    const inputName = event.target.name;
-    console.log(this.state);
-    this.setState({
-      [inputName]: value
-    });
-  }
+	handleInputChange(event) {
+		const value = event.target.value;
+		const inputName = event.target.name;
+		console.log(this.state);
+		this.setState({
+			[inputName]: value,
+		});
+	}
 
-  render() {
-console.log('something')
-  
+	render() {
+		console.log('something');
 
-    return (
-      <div className="sign-in">
+		return (
+			<div className="login-box">
+				<h2>Login</h2>
+				<form onSubmit={this.sendMessage}>
+					<div className="user-box">
+						<input
+							className="textfield"
+							id="outlined-basic"
+							label="Email"
+							variant="outlined"
+							type="email"
+							placeholder="Enter email"
+							name="email"
+							onChange={this.handleInputChange}
+						/>
+						<label>Username</label>
+					</div>
+					<div className="user-box">
+						<input
+							id="outlined-password-input"
+							label="Password"
+							type="password"
+							variant="outlined"
+							autoComplete="current-password"
+							placeholder="Password"
+							name="passwordHash"
+							onChange={this.handleInputChange}
+						/>
+
+						<label>Password</label>
+					</div>
+					<a href="#">
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+
+						<Button className="button__test" type="submit">
+							Entrar
+						</Button>
+					</a>
+				</form>
+				{/* <div className="sign-in">
         
         <img className="img__apartment" src={Apartment} />
         <h2>Sign in</h2>
@@ -83,7 +122,8 @@ console.log('something')
           </Button>
         </Form>
         <small><a href="/sign-up">Don't have an account? Sign Up</a></small>
-      </div>
-    );
-  }
+      </div> */}
+			</div>
+		);
+	}
 }

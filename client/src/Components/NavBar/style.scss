@@ -1,25 +1,25 @@
-.logo{
-  margin-left: 15px;
-  width: 220px;
-  height: 45px;
-  filter: invert(0.5);
-  filter:  brightness(0) invert(1);
+.logo {
+	margin-left: 15px;
+	width: 50px;
 }
 
-.navbar{
-  background-image: linear-gradient(to right, #3494E6, #EC6EAD ) 
+.navbar {
+	background-image: linear-gradient(to left, #f39400, #0c3a4b);
+	height: 70px;
+	display: flex;
+	align-items: center;
 }
 
-.links a{
-  color:white; 
- &:hover {
-  color: whitesmoke;
-  text-decoration: none
- }
- &:first-child {
-   padding-right: 25px
- }
- &:last-child {
-   padding-right: 20px
- }
+.links a {
+	color: white;
+	&:hover {
+		color: whitesmoke;
+		text-decoration: none;
+	}
+	&:first-child {
+		padding-right: 25px;
+	}
+	&:last-child {
+		padding-right: 20px;
+	}
 }
