@@ -6,15 +6,34 @@ import Evaluation from '../../Components/Evaluation';
 import NewTest from '../../Components/NewTest';
 import TestsList from '../../Components/TestsList';
 import Announcements from '../../Components/Announcements';
+import NewStudent from '../../Components/NewStudent';
 
 class index extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			addStudent: false,
+		};
+		this.newStudentTab = this.newStudentTab.bind(this);
+	}
+
+	newStudentTab() {
+		console.log(this.state.addStudent);
+		this.setState({
+			addStudent: !this.state.addStudent,
+		});
+	}
+
 	render() {
 		return (
 			<div className="Students__List">
 				<div className="head">
 					<h3>Lista de Alunos</h3>
-					<button>Adicionar novo aluno</button>
+					<button onClick={this.newStudentTab}>Adicionar novo aluno</button>
 				</div>
+				{this.state.addStudent && (
+					<NewStudent newStudentTab={this.newStudentTab} {...this.props} />
+				)}
 				<Table hover>
 					<thead>
 						<tr>
