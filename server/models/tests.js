@@ -11,6 +11,7 @@ const schema = new mongoose.Schema({
 		type: String,
 		require,
 	},
+	userId: String,
 	date: Date,
 });
 

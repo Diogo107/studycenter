@@ -28,3 +28,14 @@ const newTest = async (id) => {
 	}
 };
 export { newTest };
+
+const getTests = async (date) => {
+	try {
+		const result = await instance.get('/getTests');
+		const getTests = result.data.tests;
+		return getTests;
+	} catch (error) {
+		throw error;
+	}
+};
+export { getTests };

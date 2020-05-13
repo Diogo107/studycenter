@@ -28,9 +28,10 @@ class index extends Component {
 	async newTest(event) {
 		event.preventDefault();
 		let name = this.props.user.name;
+		let userId = this.props.user._id;
 		let { subject, date } = this.state;
-		console.log('information', { subject, date, name });
-		await newTest({ subject, date, name });
+		console.log('information', { subject, date, name, userId });
+		await newTest({ subject, date, name, userId });
 		window.location.reload(true);
 	}
 
