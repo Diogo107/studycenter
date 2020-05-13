@@ -18,7 +18,7 @@ class index extends Component {
 				/>
 				<Route path="/dashboard/chat" render={(props) => <Chat {...props} />} />
 				<Route
-					path="/dashboard/abstracts"
+					path="/dashboard/subjects"
 					render={(props) => <Abstracts {...props} />}
 				/>
 				<Route
