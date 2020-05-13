@@ -41,10 +41,7 @@ export default class index extends Component {
 					<Link to="/dashboard/dictionary">Dicionário</Link>
 				</div>
 				<div className="sidebar__item">
-					<Link to="/dashboard/abstracts">Resumos</Link>
-				</div>
-				<div className="sidebar__item">
-					<Link to="/dashboard/exercises">Exercícios</Link>
+					<Link to="/dashboard/subjects">Conteúdos</Link>
 				</div>
 				<div className="sidebar__item">
 					<Link to="/dashboard/faqs">FAQ's</Link>
@@ -54,6 +51,9 @@ export default class index extends Component {
 				</div>
 				<div className="sidebar__item">
 					<Link to="/dashboard/articles">Artigos</Link>
+				</div>
+				<div className="sidebar__item">
+					<Link to="/dashboard/students-list">Lista de Alunos</Link>
 				</div>
 				<div className="sidebar__item">
 					<Link to="/dashboard/insert">Inserir</Link>
