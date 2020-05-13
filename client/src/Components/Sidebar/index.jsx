@@ -44,13 +44,13 @@ export default class index extends Component {
 					<Link to="/dashboard/subjects">Conteúdos</Link>
 				</div>
 				<div className="sidebar__item">
-					<Link to="/dashboard/faqs">FAQ's</Link>
-				</div>
-				<div className="sidebar__item">
 					<Link to="/dashboard/daily-challenge">Desafio Diário</Link>
 				</div>
 				<div className="sidebar__item">
 					<Link to="/dashboard/articles">Artigos</Link>
+				</div>
+				<div className="sidebar__item">
+					<Link to="/dashboard/faqs">FAQ's</Link>
 				</div>
 				<div className="sidebar__item">
 					<Link to="/dashboard/students-list">Lista de Alunos</Link>
