@@ -11,8 +11,10 @@ class index extends Component {
 	render() {
 		return (
 			<div className="Students__List">
-				<h3>Lista de Alunos</h3>
-
+				<div className="head">
+					<h3>Lista de Alunos</h3>
+					<button>Adicionar novo aluno</button>
+				</div>
 				<Table hover>
 					<thead>
 						<tr>
