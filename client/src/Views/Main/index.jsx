@@ -12,11 +12,12 @@ import { BrowserRouter, Switch, Route, Redirect, Link } from 'react-router-dom';
 
 class index extends Component {
 	render() {
+		console.log('this is the main', this.props);
 		return (
 			<div className="Main">
 				<Route
 					path="/dashboard/overview"
-					render={(props) => <Dashboard {...props} />}
+					render={(props) => <Dashboard user={this.props.user} {...props} />}
 				/>
 				<Route path="/dashboard/chat" render={(props) => <Chat {...props} />} />
 				<Route

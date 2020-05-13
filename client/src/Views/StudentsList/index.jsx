@@ -7,6 +7,8 @@ import NewTest from '../../Components/NewTest';
 import TestsList from '../../Components/TestsList';
 import Announcements from '../../Components/Announcements';
 import NewStudent from '../../Components/NewStudent';
+import { signUp } from '../../Services/authentication';
+import { StudentsList } from './../../Services/otherServices';
 
 class index extends Component {
 	constructor(props) {
@@ -15,6 +17,16 @@ class index extends Component {
 			addStudent: false,
 		};
 		this.newStudentTab = this.newStudentTab.bind(this);
+		this.handleInputChange = this.handleInputChange.bind(this);
+		this.sendMessage = this.sendMessage.bind(this);
+	}
+
+	async componentDidMount() {
+		let list = await StudentsList();
+		console.log('this is the page', list);
+		this.setState({
+			list: list,
+		});
 	}
 
 	newStudentTab() {
@@ -22,6 +34,24 @@ class index extends Component {
 		this.setState({
 			addStudent: !this.state.addStudent,
 		});
+	}
+
+	handleInputChange(event) {
+		const value = event.target.value;
+		const inputName = event.target.name;
+		console.log(this.state);
+		this.setState({
+			[inputName]: value,
+		});
+	}
+
+	async sendMessage(event) {
+		event.preventDefault();
+		console.log(this.state);
+		let { email, name, year, passwordHash } = this.state;
+		await signUp({ email, name, year, passwordHash });
+		this.newStudentTab();
+		this.componentDidMount();
 	}
 
 	render() {
@@ -32,7 +62,11 @@ class index extends Component {
 					<button onClick={this.newStudentTab}>Adicionar novo aluno</button>
 				</div>
 				{this.state.addStudent && (
-					<NewStudent newStudentTab={this.newStudentTab} {...this.props} />
+					<NewStudent
+						sendMessage={this.sendMessage}
+						handleInputChange={this.handleInputChange}
+						{...this.props}
+					/>
 				)}
 				<Table hover>
 					<thead>
@@ -62,18 +96,16 @@ class index extends Component {
 								<Input placeholder="Filtrar Aproveitamento..." />
 							</td>
 						</tr>
-						<tr>
-							<th scope="row">Alberto</th>
-							<td>5º</td>
-							<td>4</td>
-							<td>5</td>
-						</tr>
-						<tr>
-							<th scope="row">Matemática</th>
-							<td>Aqui é preciso programar</td>
-							<td>Aqui é preciso programar</td>
-							<td>Aqui é preciso programar</td>
-						</tr>
+						{this.state.list &&
+							this.state.list.map((single) => (
+								<tr>
+									{console.log('this is single', single)}
+									<th scope="row">{single.name}</th>
+									<td>{single.year}º</td>
+									<td>{single.behaviour}</td>
+									<td>{single.achievement}</td>
+								</tr>
+							))}
 					</tbody>
 				</Table>
 			</div>

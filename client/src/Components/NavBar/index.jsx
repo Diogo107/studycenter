@@ -31,19 +31,16 @@ export default class index extends Component {
 	render() {
 		return (
 			<div>
-				{(!this.state.user && (
-					<Navbar className="navbar" bg="transparent" expand="lg">
-						<Link to="/">
-							<img className="logo" src={logo} />
+				<Navbar className="navbar" bg="transparent" expand="lg">
+					<Link to="/">
+						<img className="logo" src={logo} />
+					</Link>
+					<div className="ml-auto links">
+						<Link to="/signin" className="nav__link">
+							Login
 						</Link>
-						<div className="ml-auto links">
-							<Link to="/signin" className="nav__link">
-								Login
-							</Link>
-						</div>
-					</Navbar>
-				)) ||
-					''}
+					</div>
+				</Navbar>
 			</div>
 		);
 	}

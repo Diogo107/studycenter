@@ -5,8 +5,35 @@ import Evaluation from '../../Components/Evaluation';
 import NewTest from '../../Components/NewTest';
 import TestsList from '../../Components/TestsList';
 import Announcements from '../../Components/Announcements';
+//Services
+import { newTest } from '../../Services/otherServices';
 
 class index extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {};
+		this.newTest = this.newTest.bind(this);
+		this.handleInputChange = this.handleInputChange.bind(this);
+	}
+
+	handleInputChange(event) {
+		const value = event.target.value;
+		const inputName = event.target.name;
+		console.log(this.state);
+		this.setState({
+			[inputName]: value,
+		});
+	}
+
+	async newTest(event) {
+		event.preventDefault();
+		let name = this.props.user.name;
+		let { subject, date } = this.state;
+		console.log('information', { subject, date, name });
+		await newTest({ subject, date, name });
+		window.location.reload(true);
+	}
+
 	render() {
 		return (
 			<div className="Dashboard">
@@ -15,10 +42,13 @@ class index extends Component {
 						<Evaluation />
 					</div>
 					<div className="white insert__test">
-						<NewTest />
+						<NewTest
+							newTest={this.newTest}
+							handleInputChange={this.handleInputChange}
+						/>
 					</div>
 					<div className="white upcoming__tests">
-						<TestsList />
+						<TestsList user={this.props.user} />
 					</div>
 				</div>
 				<div className="white announcements">

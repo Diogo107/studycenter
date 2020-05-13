@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.scss';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 function index(props) {
 	return (
@@ -13,15 +13,17 @@ function index(props) {
 						name="email"
 						id="exampleEmail"
 						placeholder="Inserir email..."
+						onChange={props.handleInputChange}
 					/>
 				</FormGroup>
 				<FormGroup>
 					<Label for="examplePassword">Password</Label>
 					<Input
 						type="password"
-						name="password"
+						name="passwordHash"
 						id="examplePassword"
 						placeholder="password placeholder"
+						onChange={props.handleInputChange}
 					/>
 				</FormGroup>
 			</div>
@@ -30,22 +32,24 @@ function index(props) {
 					<Label for="exampleEmail">Name</Label>
 					<Input
 						type="text"
-						name="email"
+						name="name"
 						id="exampleEmail"
 						placeholder="Inserir nome..."
+						onChange={props.handleInputChange}
 					/>
 				</FormGroup>
 				<FormGroup>
 					<Label for="exampleEmail">Ano Lectivo</Label>
 					<Input
 						type="number"
-						name="email"
+						name="year"
 						id="exampleEmail"
 						placeholder="Inserir ano..."
+						onChange={props.handleInputChange}
 					/>
 				</FormGroup>
 			</div>
-			<Button onClick={props.newStudentTab}>Guardar</Button>
+			<Button onClick={props.sendMessage}>Guardar</Button>
 		</Form>
 	);
 }

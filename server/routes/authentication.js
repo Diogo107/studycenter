@@ -3,29 +3,17 @@
 const { Router } = require('express');
 const bcryptjs = require('bcryptjs');
 const User = require('./../models/user');
-const stripe = require('./../stripe-configure');
 const uploader = require('./../multer-configure.js');
 
 const router = new Router();
 
 router.post('/sign-up', async (req, res, next) => {
 	console.log('This is on the server', req.body);
-	const { name, email, phoneNumber, passwordHash, admin, createdAt } = req.body;
-	let BuildingId;
-	if (req.body.buildingId) BuildingId = req.body.buildingId;
+	const { name, email, year, passwordHash } = req.body;
 	try {
-		const customer = await stripe.customers.create();
 		const hash = await bcryptjs.hash(passwordHash, 10);
-		const user = await User.create({
-			name,
-			email,
-			phoneNumber,
-			passwordHash: hash,
-			admin,
-			stripeCustomerId: customer.id,
-			createdAt,
-		});
-		req.session.user = user._id;
+		const user = await User.create({ name, email, year, passwordHash: hash });
+		//req.session.user = user._id;
 		res.json({ user });
 	} catch (error) {
 		next(error);
@@ -41,6 +29,7 @@ router.post('/sign-in', (req, res, next) => {
 				return Promise.reject(new Error("There's no user with that email."));
 			} else {
 				user = document;
+				console.log('got here?');
 				return bcryptjs.compare(passwordHash, user.passwordHash);
 			}
 		})

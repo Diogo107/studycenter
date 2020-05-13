@@ -30,51 +30,15 @@ const schema = new mongoose.Schema({
 		type: Boolean,
 		default: false,
 	},
-	NIF: {
+	behaviour: {
 		type: Number,
-		trim: true,
+		default: 5,
 	},
-	Council: {
-		type: String,
-		trim: true,
+	achievement: {
+		type: Number,
+		default: 5,
 	},
-	Parish: {
-		type: String,
-		trim: true,
-	},
-	Address: {
-		type: String,
-		trim: true,
-	},
-	BuildingNumber: {
-		type: String,
-		trim: true,
-	},
-	Floor: {
-		type: String,
-		trim: true,
-	},
-	DoorNumber: {
-		type: String,
-		trim: true,
-	},
-	ZipCode: {
-		type: String,
-		trim: true,
-	},
-	cart: [
-		{
-			_id: String,
-			name: String,
-			quantity: {
-				type: Number,
-				default: 1,
-			},
-			price: Number,
-			image: String,
-		},
-	],
-	stripeCustomerId: String,
+	year: Number,
 	createdAt: Date,
 });
 

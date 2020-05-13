@@ -13,13 +13,8 @@ export default class index extends Component {
 			email: '',
 			passwordHash: '',
 		};
-		this.componentDidMount = this.componentDidMount.bind(this);
 		this.handleInputChange = this.handleInputChange.bind(this);
 		this.sendMessage = this.sendMessage.bind(this);
-	}
-
-	async componentDidMount() {
-		console.log('this is the sign in', this.props);
 	}
 
 	async sendMessage(event) {

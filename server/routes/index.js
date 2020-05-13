@@ -11,7 +11,7 @@ const Building = require('./../models/building');
 const Post = require('./../models/post');
 const Bill = require('./../models/bill');
 const Calendar = require('../models/calendar.js');
-const Services = require('./../models/services');
+const Tests = require('./../models/tests');
 const User = require('./../models/user');
 
 router.get('/', (req, res, next) => {
@@ -274,31 +274,24 @@ router.post('/eraseBill', (req, res, next) => {
 		});
 });
 
-router.get('/bill', (req, res, next) => {
-	let buildingId = req.user.buildingId;
-	Bill.find({ buildingId: buildingId })
+router.get('/studentsList', (req, res, next) => {
+	User.find({ admin: false })
 		.sort({ timestamp: 'descending' })
-		.then((posts) => {
-			console.log(posts);
-			res.json({ posts });
+		.then((result) => {
+			console.log(result);
+			res.json({ result });
 		})
 		.catch((error) => {
 			next(error);
 		});
 });
 
-router.post('/services', (req, res, next) => {
-	const { name, workField, price, phoneNumber } = req.body;
-	let buildingId = req.user.buildingId;
-	Services.create({
-		name,
-		workField,
-		price,
-		phoneNumber,
-		buildingId,
-	})
-		.then((services) => {
-			res.json({ services });
+router.post('/newTest', (req, res, next) => {
+	const { subject, date, name } = req.body.id;
+	console.log('server side', { subject, date, name });
+	Tests.create({ subject, date, name })
+		.then((result) => {
+			res.json({ result });
 		})
 		.catch((error) => {
 			next(error);

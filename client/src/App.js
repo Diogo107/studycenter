@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.scss';
 import NavBar from './Components/NavBar';
+import NavUser from './Components/NavUser';
 import SignIn from './Views/Auth/SignIn';
 import Main from './Views/Main';
 import Sidebar from './Components/Sidebar';
@@ -40,10 +41,17 @@ class App extends Component {
 		return (
 			<div className="App">
 				<BrowserRouter>
-					<Route
-						path="*"
-						render={(props) => <NavBar user={this.state.user} {...props} />}
-					/>
+					{(this.state.user && (
+						<Route
+							path="*"
+							render={(props) => <NavUser user={this.state.user} {...props} />}
+						/>
+					)) || (
+						<Route
+							path="*"
+							render={(props) => <NavBar user={this.state.user} {...props} />}
+						/>
+					)}
 					<Route
 						path="/signin"
 						render={(props) => (
