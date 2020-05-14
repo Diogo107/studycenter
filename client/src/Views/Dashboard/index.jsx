@@ -40,7 +40,7 @@ class index extends Component {
 			<div className="Dashboard">
 				<div className="left">
 					<div className="white evaluation">
-						<Evaluation />
+						<Evaluation user={this.props.user} {...this.props} />
 					</div>
 					<div className="white insert__test">
 						<NewTest

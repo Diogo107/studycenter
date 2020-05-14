@@ -13,11 +13,8 @@ class index extends Component {
 
 	async componentDidMount() {
 		let list = await getTests();
-		console.log(this.props.user._id);
-		list.filter((single) => single.userId == this.props.user._id);
-		console.log(list);
 		this.setState({
-			list: list,
+			list: list.filter((single) => single.userId == this.props.user._id),
 		});
 	}
 

@@ -15,22 +15,27 @@ class index extends Component {
 		super(props);
 		this.state = {
 			addStudent: false,
+			filteredList: [],
+			name: '',
+			year: '',
+			behaviour: '',
+			achievement: '',
 		};
 		this.newStudentTab = this.newStudentTab.bind(this);
 		this.handleInputChange = this.handleInputChange.bind(this);
 		this.sendMessage = this.sendMessage.bind(this);
+		this.filterList = this.filterList.bind(this);
 	}
 
 	async componentDidMount() {
 		let list = await StudentsList();
-		console.log('this is the page', list);
 		this.setState({
 			list: list,
+			filteredList: list,
 		});
 	}
 
 	newStudentTab() {
-		console.log(this.state.addStudent);
 		this.setState({
 			addStudent: !this.state.addStudent,
 		});
@@ -39,19 +44,27 @@ class index extends Component {
 	handleInputChange(event) {
 		const value = event.target.value;
 		const inputName = event.target.name;
-		console.log(this.state);
 		this.setState({
 			[inputName]: value,
 		});
+		this.filterList();
 	}
 
 	async sendMessage(event) {
 		event.preventDefault();
-		console.log(this.state);
 		let { email, name, year, passwordHash } = this.state;
 		await signUp({ email, name, year, passwordHash });
 		this.newStudentTab();
 		this.componentDidMount();
+	}
+
+	filterList() {
+		console.log('hellllllllo', this.state);
+		let filteredList = this.state.list.filter((single) =>
+			single.name.includes(this.state.name)
+		);
+		console.log('hellllllllo', filteredList);
+		this.setState({ filteredList });
 	}
 
 	render() {
@@ -81,25 +94,41 @@ class index extends Component {
 						<tr>
 							<th scope="row">
 								{' '}
-								<Input placeholder="Filtrar Nome..." />
+								<Input
+									name="name"
+									placeholder="Filtrar Nome..."
+									onChange={this.handleInputChange}
+								/>
 							</th>
 							<td>
 								{' '}
-								<Input placeholder="Filtrar Ano..." />
+								<Input
+									name="year"
+									onChange={this.handleInputChange}
+									placeholder="Filtrar Ano..."
+								/>
 							</td>
 							<td>
 								{' '}
-								<Input placeholder="Filtrar Comportamento..." />
+								<Input
+									name="behaviour"
+									onChange={this.handleInputChange}
+									placeholder="Filtrar Comportamento..."
+								/>
 							</td>
 							<td>
 								{' '}
-								<Input placeholder="Filtrar Aproveitamento..." />
+								<Input
+									name="achievement"
+									onChange={this.handleInputChange}
+									placeholder="Filtrar Aproveitamento..."
+								/>
 							</td>
 						</tr>
-						{this.state.list &&
-							this.state.list.map((single) => (
+						{this.state.filteredList &&
+							this.state.filteredList.map((single) => (
 								<tr>
-									{console.log('this is single', single)}
+									{console.log('this is single')}
 									<th scope="row">{single.name}</th>
 									<td>{single.year}º</td>
 									<td>{single.behaviour}</td>
