@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import './style.scss';
-import { Input } from 'reactstrap';
+import { Input, Button } from 'reactstrap';
+//Images
+import Edit from './../../asset/images/editar.png';
+import Id from './../../asset/images/contactos/id.png';
+import Mail from './../../asset/images/contactos/mail.png';
+import Academic from './../../asset/images/contactos/academic.png';
 
 class index extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			edit: false,
+			edit: true,
 		};
 	}
 	componentDidMount() {
@@ -16,7 +21,6 @@ class index extends Component {
 	}
 
 	render() {
-		console.log('this is the profile', this.props);
 		return (
 			<div className="Profile">
 				{this.state.name && (
@@ -27,34 +31,16 @@ class index extends Component {
 							</div>
 							<div className="Profile__Left__Text">
 								<div>
-									<h5>Nome:</h5>
-									{(this.state.edit && (
-										<Input
-											value={this.state.name}
-											onChange={this.handleInputChange}
-											name="name"
-										/>
-									)) || <p> {this.state.name} </p>}
+									<img src={Id} alt="name" />
+									<p> {this.state.name} </p>
 								</div>
 								<div>
-									<h5>Ano Lectivo:</h5>
-									{(this.state.edit && (
-										<Input
-											value={this.state.year}
-											onChange={this.handleInputChange}
-											name="year"
-										/>
-									)) || <p> {this.state.year} </p>}
+									<img src={Academic} alt="name" />
+									<p> {this.state.year}º </p>
 								</div>
 								<div>
-									<h5>Email:</h5>
-									{(this.state.edit && (
-										<Input
-											value={this.state.email}
-											onChange={this.handleInputChange}
-											name="email"
-										/>
-									)) || <p> {this.state.email} </p>}
+									<img src={Mail} alt="name" />
+									<p> {this.state.email} </p>
 								</div>
 							</div>
 						</div>
