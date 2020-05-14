@@ -7,6 +7,7 @@ class index extends Component {
 		this.state = {};
 	}
 	render() {
+		console.log('this is the profile', this.props);
 		return <div className="Profile">This will be the profile</div>;
 	}
 }
