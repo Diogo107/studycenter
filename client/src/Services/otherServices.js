@@ -52,3 +52,27 @@ const getTests = async (date) => {
 	}
 };
 export { getTests };
+
+const newAnnouncement = async (id) => {
+	try {
+		console.log('other services post', id);
+		const result = await instance.post('/newAnnouncement', { id });
+		console.log('other services result', result);
+		const posts = result.data.posts;
+		return posts;
+	} catch (error) {
+		throw error;
+	}
+};
+export { newAnnouncement };
+
+const getAnnouncement = async (date) => {
+	try {
+		const result = await instance.get('/getAnnouncement');
+		const getAnnouncement = result.data.tests;
+		return getAnnouncement;
+	} catch (error) {
+		throw error;
+	}
+};
+export { getAnnouncement };

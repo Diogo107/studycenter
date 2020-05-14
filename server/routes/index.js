@@ -6,6 +6,7 @@ const routeGuard = require('./../middleware/route-guard');
 const uploader = require('./../multer-configure.js');
 const Tests = require('./../models/tests');
 const User = require('./../models/user');
+const Announcements = require('../models/announcements');
 
 router.get('/', (req, res, next) => {
 	res.json({ type: 'success', data: { title: 'Hello World' } });
@@ -51,6 +52,31 @@ router.post('/updateNotes', (req, res, next) => {
 router.get('/getTests', (req, res, next) => {
 	Tests.find()
 		.sort({ date: 'ascending' })
+		.then((tests) => {
+			res.json({ tests });
+		})
+		.catch((error) => {
+			next(error);
+		});
+});
+
+router.post('/newAnnouncement', (req, res, next) => {
+	const { notes, userId } = req.body.id;
+	console.log('server side', notes);
+
+	/* Announcements.create()
+		.then((result) => {
+			res.json({ result });
+		})
+		.catch((error) => {
+			next(error);
+		}); */
+});
+
+router.get('/getAnnouncement', (req, res, next) => {
+	Announcements.find()
+		.sort({ date: 'ascending' })
+		.limit(10)
 		.then((tests) => {
 			res.json({ tests });
 		})
