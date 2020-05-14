@@ -10,4 +10,11 @@
 			color: white;
 		}
 	}
+	.navbar-nav {
+		display: flex;
+		align-content: center;
+		h6 {
+			margin: auto 1em;
+		}
+	}
 }

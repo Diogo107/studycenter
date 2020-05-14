@@ -90,12 +90,12 @@ export default class index extends Component {
 							{this.changeInput(this.props.history.location.pathname)}
 						</Navbar.Brand>
 						<div className=" links">
-							<Nav className="mobileuser">
-								<Avatar alt="Remy Sharp" src={this.state.user.picture} />
-								<Nav.Link className="mobilename" href="/dashboard/profile">
-									{this.state.user.name}
-								</Nav.Link>
-							</Nav>
+							<Link to="/dashboard/profile">
+								<Nav className="mobileuser">
+									<Avatar alt="Remy Sharp" src={this.state.user.picture} />
+									<h6 className="mobilename">{this.state.user.name}</h6>
+								</Nav>
+							</Link>
 						</div>
 					</Navbar>
 				)) ||

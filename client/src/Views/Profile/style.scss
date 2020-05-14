@@ -3,6 +3,9 @@
 	width: 100%;
 	min-height: 80vh;
 	display: flex;
+	input {
+		max-width: 200px;
+	}
 	.Profile__Left {
 		width: 100%;
 		border: 1px solid black;
@@ -17,6 +20,7 @@
 			height: 250px;
 			padding: 3em;
 		}
+
 		.Profile__Left__Text {
 			display: flex;
 			flex-direction: column;
