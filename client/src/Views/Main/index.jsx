@@ -3,7 +3,7 @@ import './style.scss';
 //Components
 import Dashboard from '../Dashboard';
 import Chat from '../Chat';
-import Dictionary from '../Dictionary';
+import Dictionary from '../Annotations';
 import Abstracts from '../Abstracts';
 import FAQS from '../FAQ';
 import StudentsList from '../StudentsList';
