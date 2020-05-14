@@ -61,6 +61,9 @@ export default class index extends Component {
 				<div className="sidebar__item">
 					<Link to="/dashboard/test-list">Lista de Testes</Link>
 				</div>
+				<div className="sidebar__item">
+					<Link to="/dashboard/test-list">Criar Comunicação</Link>
+				</div>
 
 				<Form className="signout__button" onSubmit={this.handleSignOut}>
 					<Button className="button__test" type="submit">
