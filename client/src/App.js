@@ -3,6 +3,7 @@ import './App.scss';
 import NavBar from './Components/NavBar';
 import NavUser from './Components/NavUser';
 import SignIn from './Views/Auth/SignIn';
+import SignUp from './Views/Auth/SignUp';
 import Main from './Views/Main';
 import Sidebar from './Components/Sidebar';
 import Footer from './Components/Footer';
@@ -41,6 +42,10 @@ class App extends Component {
 		return (
 			<div className="App">
 				<BrowserRouter>
+					<Route
+						path="/signup"
+						render={(props) => <SignUp user={this.state.user} {...props} />}
+					/>
 					{(this.state.user && (
 						<Route
 							path="*"
