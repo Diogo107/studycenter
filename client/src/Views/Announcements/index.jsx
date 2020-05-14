@@ -24,8 +24,8 @@ class index extends Component {
 	async sendMessage(event) {
 		event.preventDefault();
 		let { title, text } = this.state;
-		//newAnnouncement();
-		console.log('hello', { title, text });
+		await newAnnouncement({ title, text });
+		this.props.history.push('/dashboard/overview');
 	}
 
 	render() {

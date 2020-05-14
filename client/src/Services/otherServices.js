@@ -53,10 +53,10 @@ const getTests = async (date) => {
 };
 export { getTests };
 
-const newAnnouncement = async (id) => {
+const newAnnouncement = async (data) => {
 	try {
-		console.log('other services post', id);
-		const result = await instance.post('/newAnnouncement', { id });
+		console.log('other services post', data);
+		const result = await instance.post('/newAnnouncement', { data });
 		console.log('other services result', result);
 		const posts = result.data.posts;
 		return posts;

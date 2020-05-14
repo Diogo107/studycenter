@@ -6,7 +6,7 @@ import NewTest from '../../Components/NewTest';
 import TestsList from '../../Components/TestsList';
 import Announcements from '../../Components/Announcements';
 //Services
-import { newTest } from '../../Services/otherServices';
+import { newTest, getAnnouncement } from '../../Services/otherServices';
 
 class index extends Component {
 	constructor(props) {
@@ -14,6 +14,10 @@ class index extends Component {
 		this.state = {};
 		this.newTest = this.newTest.bind(this);
 		this.handleInputChange = this.handleInputChange.bind(this);
+	}
+
+	async componentDidMount() {
+		let announcements = await getAnnouncement();
 	}
 
 	handleInputChange(event) {

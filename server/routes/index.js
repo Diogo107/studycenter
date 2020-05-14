@@ -61,16 +61,15 @@ router.get('/getTests', (req, res, next) => {
 });
 
 router.post('/newAnnouncement', (req, res, next) => {
-	const { notes, userId } = req.body.id;
-	console.log('server side', notes);
-
-	/* Announcements.create()
+	const { title, text } = req.body.data;
+	console.log('server side', { title, text });
+	Announcements.create({ title, text })
 		.then((result) => {
 			res.json({ result });
 		})
 		.catch((error) => {
 			next(error);
-		}); */
+		});
 });
 
 router.get('/getAnnouncement', (req, res, next) => {
