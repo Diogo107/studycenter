@@ -3,6 +3,7 @@ import './style.scss';
 import { Table, InputGroup, Form, Label, Input, Button } from 'reactstrap';
 //Images
 import pencil from './../../asset/images/pencil.png';
+import rubber from './../../asset/images/rubber.png';
 //Services
 import { updateNotes } from './../../Services/otherServices';
 import moment from 'moment';
@@ -15,6 +16,7 @@ class index extends Component {
 		};
 		this.addNote = this.addNote.bind(this);
 		this.handleInputChange = this.handleInputChange.bind(this);
+		this.erase = this.erase.bind(this);
 	}
 
 	async componentDidMount() {
@@ -48,6 +50,17 @@ class index extends Component {
 		});
 	}
 
+	async erase(event) {
+		event.preventDefault();
+		let selected = event.target[0].value;
+		console.log(selected);
+		let notes = await this.state.notes.filter((single) => {
+			console.log(single.id);
+			return single.id !== selected;
+		});
+		this.setState({ notes });
+	}
+
 	render() {
 		return (
 			<div className="Dictionary">
@@ -73,10 +86,17 @@ class index extends Component {
 					{this.state.notes.map((single) => (
 						<div class="post-it">
 							<p class="sticky taped">
-								<strong>{moment(single.date).format('DD [/] MM [/] Y')}</strong>
-								<br />
-								<br />
-								{single.text}
+								<form onSubmit={this.erase}>
+									<button value={single.id}>
+										<img src={rubber} />
+									</button>
+									<strong>
+										{moment(single.date).format('DD [/] MM [/] Y')}
+									</strong>
+									<br />
+									<br />
+									{single.text}
+								</form>
 							</p>
 						</div>
 					))}

@@ -45,10 +45,29 @@
 		font-family: 'Give You Glory', cursive;
 		font-family: 'The Girl Next Door', cursive;
 		font-family: 'Gloria Hallelujah', cursive;
+		display: flex;
+		flex-direction: column;
 	}
 	.post-it {
 		display: table;
 		margin: 1em;
+		button {
+			position: absolute;
+			right: 0;
+			background-color: transparent;
+			border-width: 2px;
+			border-style: initial;
+			&:active {
+				border-style: outset;
+			}
+		}
+		form {
+			padding: 0;
+		}
+		img {
+			width: 25px;
+			height: 25px;
+		}
 	}
 	.taped {
 		display: table-cell;
