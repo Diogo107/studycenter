@@ -42,10 +42,6 @@ class App extends Component {
 		return (
 			<div className="App">
 				<BrowserRouter>
-					<Route
-						path="/signup"
-						render={(props) => <SignUp user={this.state.user} {...props} />}
-					/>
 					{(this.state.user && (
 						<Route
 							path="*"
