@@ -74,7 +74,7 @@ router.post('/newAnnouncement', (req, res, next) => {
 
 router.get('/getAnnouncement', (req, res, next) => {
 	Announcements.find()
-		.sort({ date: 'ascending' })
+		.sort({ date: 'descending' })
 		.limit(10)
 		.then((tests) => {
 			res.json({ tests });

@@ -1,32 +1,22 @@
 import React from 'react';
 import './style.scss';
 import { Table } from 'reactstrap';
+//Services
+import moment from 'moment';
 
 function index(props) {
+	console.log('working on props', props);
 	return (
 		<div className="NewTest__Component">
 			<h4>Comunicados</h4>
-			<Table hover responsive>
-				<thead>
-					<tr>
-						<th>#</th>
-						<th>Disciplina</th>
-						<th>Data</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<th scope="row">1</th>
-						<td>Aqui é preciso programar</td>
-						<td>Aqui é preciso programar</td>
-					</tr>
-					<tr>
-						<th scope="row">2</th>
-						<td>Aqui é preciso programar</td>
-						<td>Aqui é preciso programar</td>
-					</tr>
-				</tbody>
-			</Table>
+			{props.announcements &&
+				props.announcements.map((single) => (
+					<div className="Single__Annoucement">
+						<h5>{single.title}</h5>
+						<p>{single.text}</p>
+						<p id="date">{moment(single.date).format('DD [/] MM [/] Y')}</p>
+					</div>
+				))}
 		</div>
 	);
 }

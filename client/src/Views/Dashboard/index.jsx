@@ -18,6 +18,10 @@ class index extends Component {
 
 	async componentDidMount() {
 		let announcements = await getAnnouncement();
+		console.log('before I send', announcements);
+		this.setState({
+			announcements,
+		});
 	}
 
 	handleInputChange(event) {
@@ -34,7 +38,6 @@ class index extends Component {
 		let name = this.props.user.name;
 		let userId = this.props.user._id;
 		let { subject, date } = this.state;
-		console.log('information', { subject, date, name, userId });
 		await newTest({ subject, date, name, userId });
 		window.location.reload(true);
 	}
@@ -57,7 +60,7 @@ class index extends Component {
 					</div>
 				</div>
 				<div className="white announcements">
-					<Announcements />
+					<Announcements announcements={this.state.announcements} />
 				</div>
 			</div>
 		);
