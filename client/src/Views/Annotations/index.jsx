@@ -53,12 +53,13 @@ class index extends Component {
 	async erase(event) {
 		event.preventDefault();
 		let selected = event.target[0].value;
-		console.log(selected);
-		let notes = await this.state.notes.filter((single) => {
-			console.log(single.id);
-			return single.id !== selected;
-		});
-		this.setState({ notes });
+		let notes = await this.state.notes.filter(
+			(single) => single._id !== selected
+		);
+		console.log(notes);
+		await this.setState({ notes });
+		let userId = this.props.user._id;
+		await updateNotes({ notes, userId });
 	}
 
 	render() {
@@ -87,7 +88,7 @@ class index extends Component {
 						<div class="post-it">
 							<p class="sticky taped">
 								<form onSubmit={this.erase}>
-									<button value={single.id}>
+									<button value={single._id}>
 										<img src={rubber} />
 									</button>
 									<strong>

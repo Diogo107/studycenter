@@ -7,6 +7,8 @@ import Annotations from '../Annotations';
 import Abstracts from '../Abstracts';
 import FAQS from '../FAQ';
 import StudentsList from '../StudentsList';
+import TestsList from '../TestsList';
+import Announcements from '../Announcements';
 //Routes
 import { BrowserRouter, Switch, Route, Redirect, Link } from 'react-router-dom';
 
@@ -32,6 +34,14 @@ class index extends Component {
 				<Route
 					path="/dashboard/students-list"
 					render={(props) => <StudentsList {...props} />}
+				/>
+				<Route
+					path="/dashboard/test-list"
+					render={(props) => <TestsList {...props} />}
+				/>
+				<Route
+					path="/dashboard/announcements"
+					render={(props) => <Announcements {...props} />}
 				/>
 			</div>
 		);
