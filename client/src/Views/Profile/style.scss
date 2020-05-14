@@ -2,4 +2,34 @@
 	background-color: white;
 	width: 100%;
 	min-height: 80vh;
+	display: flex;
+	.Profile__Left {
+		width: 100%;
+		border: 1px solid black;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		> div {
+			height: 50%;
+		}
+		img {
+			width: 250px;
+			height: 250px;
+			padding: 3em;
+		}
+		.Profile__Left__Text {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-evenly;
+			margin: auto 4em;
+			> div {
+				display: flex;
+				justify-content: space-between;
+			}
+		}
+	}
+	.Profile__Right {
+		width: 100%;
+		border: 1px solid black;
+	}
 }

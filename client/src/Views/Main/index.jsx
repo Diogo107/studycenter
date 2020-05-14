@@ -46,7 +46,7 @@ class index extends Component {
 				/>
 				<Route
 					path="/dashboard/profile"
-					render={(props) => <Profile {...props} />}
+					render={(props) => <Profile user={this.props.user} {...props} />}
 				/>
 			</div>
 		);
