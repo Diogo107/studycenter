@@ -35,6 +35,19 @@ router.post('/newTest', (req, res, next) => {
 		});
 });
 
+router.post('/updateNotes', (req, res, next) => {
+	const { notes, userId } = req.body.id;
+	console.log('server side', notes);
+	console.log('server side', userId);
+	User.findByIdAndUpdate(userId, { notes })
+		.then((result) => {
+			res.json({ result });
+		})
+		.catch((error) => {
+			next(error);
+		});
+});
+
 router.get('/getTests', (req, res, next) => {
 	Tests.find()
 		.sort({ date: 'ascending' })

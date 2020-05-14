@@ -57,7 +57,7 @@ function index(props) {
 				</div>
 			</div>
 			<div className="Image">
-				<img src={selected} alt="temp" />
+				<img src={selected} alt="Smile" />
 			</div>
 		</div>
 	);

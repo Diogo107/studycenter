@@ -38,6 +38,13 @@ const schema = new mongoose.Schema({
 		type: Number,
 		default: 5,
 	},
+	notes: [
+		{
+			id: Number,
+			text: String,
+			date: Date,
+		},
+	],
 	year: Number,
 	createdAt: Date,
 });

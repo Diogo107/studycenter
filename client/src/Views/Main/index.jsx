@@ -3,7 +3,7 @@ import './style.scss';
 //Components
 import Dashboard from '../Dashboard';
 import Chat from '../Chat';
-import Dictionary from '../Annotations';
+import Annotations from '../Annotations';
 import Abstracts from '../Abstracts';
 import FAQS from '../FAQ';
 import StudentsList from '../StudentsList';
@@ -22,7 +22,7 @@ class index extends Component {
 				<Route path="/dashboard/chat" render={(props) => <Chat {...props} />} />
 				<Route
 					path="/dashboard/dictionary"
-					render={(props) => <Dictionary {...props} />}
+					render={(props) => <Annotations user={this.props.user} {...props} />}
 				/>
 				<Route
 					path="/dashboard/subjects"
