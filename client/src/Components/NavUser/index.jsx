@@ -45,8 +45,8 @@ export default class index extends Component {
 			case '/dashboard/profile':
 				return 'Profile';
 				break;
-			case '/dashboard/dictionary':
-				return 'Dicionário';
+			case '/dashboard/annotations':
+				return 'Minhas Notas';
 				break;
 			case '/dashboard/subjects':
 				return 'Conteúdos';
@@ -66,6 +66,15 @@ export default class index extends Component {
 			case '/dashboard/insert':
 				return 'Inserir';
 				break;
+			case '/dashboard/test-list':
+				return 'Lista de Testes';
+				break;
+			case '/dashboard/announcements':
+				return 'Criar Comunicado';
+				break;
+			case '/dashboard/Profile':
+				return 'Perfil';
+				break;
 		}
 	}
 
@@ -83,7 +92,7 @@ export default class index extends Component {
 						<div className=" links">
 							<Nav className="mobileuser">
 								<Avatar alt="Remy Sharp" src={this.state.user.picture} />
-								<Nav.Link className="mobilename" href="/profile">
+								<Nav.Link className="mobilename" href="/dashboard/profile">
 									{this.state.user.name}
 								</Nav.Link>
 							</Nav>

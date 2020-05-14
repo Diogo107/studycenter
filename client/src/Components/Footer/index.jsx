@@ -7,7 +7,7 @@ import headerAt from './../../asset/images/headerAt.png';
 export default function Footer() {
 	return (
 		<Navbar className="footer" bg="light" expand="lg">
-			<Link to="/FAQ">
+			<Link to="/dashboard/FAQ">
 				<Nav>FAQ</Nav>
 			</Link>
 			<Link to="/contactos">
@@ -17,13 +17,13 @@ export default function Footer() {
 			</Link>
 			<Nav>
 				<small>
-					2020© FloriQueijos by{' '}
+					2020© Ventos Traquinas by{' '}
 					<a
 						className="footer__link"
 						href="https://github.com/Diogo107"
 						target="_blank"
 					>
-						Diogo
+						Diogo Santos
 					</a>
 				</small>
 			</Nav>

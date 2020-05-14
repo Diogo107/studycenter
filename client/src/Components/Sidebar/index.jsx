@@ -38,7 +38,7 @@ export default class index extends Component {
 					<Link to="/dashboard/chat">Chat</Link>
 				</div>
 				<div className="sidebar__item">
-					<Link to="/dashboard/dictionary">Anotações</Link>
+					<Link to="/dashboard/annotations">Anotações</Link>
 				</div>
 				<div className="sidebar__item">
 					<Link to="/dashboard/subjects">Conteúdos</Link>

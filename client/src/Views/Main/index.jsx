@@ -9,6 +9,7 @@ import FAQS from '../FAQ';
 import StudentsList from '../StudentsList';
 import TestsList from '../TestsList';
 import Announcements from '../Announcements';
+import Profile from '../Profile';
 //Routes
 import { BrowserRouter, Switch, Route, Redirect, Link } from 'react-router-dom';
 
@@ -23,7 +24,7 @@ class index extends Component {
 				/>
 				<Route path="/dashboard/chat" render={(props) => <Chat {...props} />} />
 				<Route
-					path="/dashboard/dictionary"
+					path="/dashboard/annotations"
 					render={(props) => <Annotations user={this.props.user} {...props} />}
 				/>
 				<Route
@@ -42,6 +43,10 @@ class index extends Component {
 				<Route
 					path="/dashboard/announcements"
 					render={(props) => <Announcements {...props} />}
+				/>
+				<Route
+					path="/dashboard/profile"
+					render={(props) => <Profile {...props} />}
 				/>
 			</div>
 		);
