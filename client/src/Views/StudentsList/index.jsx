@@ -41,10 +41,10 @@ class index extends Component {
 		});
 	}
 
-	handleInputChange(event) {
+	async handleInputChange(event) {
 		const value = event.target.value;
 		const inputName = event.target.name;
-		this.setState({
+		await this.setState({
 			[inputName]: value,
 		});
 		this.filterList();
@@ -58,12 +58,16 @@ class index extends Component {
 		this.componentDidMount();
 	}
 
-	filterList() {
+	async filterList() {
 		console.log('hellllllllo', this.state);
-		let filteredList = this.state.list.filter((single) =>
-			single.name.includes(this.state.name)
-		);
-		console.log('hellllllllo', filteredList);
+		let filteredList = await this.state.list.filter((single) => {
+			return single.name.includes(this.state.name);
+		});
+
+		/* filteredList = await filteredList.filter((single) => {
+			return single.year == this.state.year;
+		}); */
+
 		this.setState({ filteredList });
 	}
 
