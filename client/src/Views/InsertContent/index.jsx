@@ -2,20 +2,16 @@ import React, { Component } from 'react';
 import './style.scss';
 import { Form, Input } from 'reactstrap';
 import { Button } from 'react-bootstrap';
-import { uploadFile } from '../../Services/otherServices';
+import { uploadMaterial } from '../../Services/otherServices';
 
 class index extends Component {
 	state = {};
 
 	handleInputFile = async (event) => {
-		console.log('hello', event.target.files[0]);
-		console.log('hello', event.target.name);
-		let what = event.target.files[0];
-		let where = event.target.name;
+		let { name, files } = event.target;
 		await this.setState({
-			[where]: what,
+			[name]: files[0],
 		});
-		console.log('final', this.state);
 	};
 
 	handleInputChange = async (event) => {
@@ -26,13 +22,24 @@ class index extends Component {
 		});
 	};
 
-	saveContent = (event) => {
+	saveContent = async (event) => {
 		event.preventDefault();
 		let { Subject, Theme, Year, Sumary, Questions } = this.state;
-		/* let Sumary = this.state.Sumary;
-	    let = Questions;  */
-		uploadFile({ Subject, Theme, Year, Sumary, Questions });
-		console.log('saveContent', this.state);
+		const result = await uploadMaterial({
+			Subject,
+			Theme,
+			Year,
+			Sumary,
+			Questions,
+		});
+		this.setState({
+			Subject: '',
+			Theme: '',
+			Year: '',
+			Sumary: '',
+			Questions: '',
+		});
+		this.props.history.push('subjects');
 	};
 
 	render() {
@@ -44,6 +51,7 @@ class index extends Component {
 						placeholder="Disciplina"
 						type="text"
 						name="Subject"
+						required
 						onChange={this.handleInputChange}
 					/>
 					<Input
@@ -51,6 +59,7 @@ class index extends Component {
 						placeholder="Tema"
 						type="text"
 						name="Theme"
+						required
 						onChange={this.handleInputChange}
 					/>
 					<Input
@@ -58,19 +67,20 @@ class index extends Component {
 						placeholder="Ano Lectivo"
 						type="number"
 						name="Year"
+						required
 						onChange={this.handleInputChange}
 					/>
 					<Input
-						type="file"
+						type="textarea"
 						name="Sumary"
 						placeholder="Resumos"
-						onChange={this.handleInputFile}
+						onChange={this.handleInputChange}
 					/>
 					<Input
-						type="file"
+						type="textarea"
 						name="Questions"
 						placeholder="Questões"
-						onChange={this.handleInputFile}
+						onChange={this.handleInputChange}
 					/>
 					<Button type="submit">Guardar</Button>
 				</Form>

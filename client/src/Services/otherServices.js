@@ -66,15 +66,22 @@ const newAnnouncement = async (data) => {
 };
 export { newAnnouncement };
 
-const uploadFile = async (data) => {
+const uploadMaterial = async (data) => {
+	console.log('other services', data);
 	try {
-		console.log('other services', data);
-		const result = await instance.post('/uploadFile', data);
+		const result = await instance.post('/uploadMaterial', data);
+		return result;
 	} catch (error) {
 		console.log(error);
 	}
 };
-export { uploadFile };
+export { uploadMaterial };
+
+const getMaterial = async () => {
+	const result = await instance.get('/getMaterial');
+	return result.data.material;
+};
+export { getMaterial };
 
 const getAnnouncement = async (date) => {
 	try {

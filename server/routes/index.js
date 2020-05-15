@@ -5,6 +5,7 @@ const router = new Router();
 const routeGuard = require('./../middleware/route-guard');
 const Tests = require('./../models/tests');
 const User = require('./../models/user');
+const Material = require('./../models/material');
 const Announcements = require('../models/announcements');
 const multer = require('multer');
 const upload = multer({ dest: 'uploadedFiles/' });
@@ -74,29 +75,31 @@ router.post('/newAnnouncement', (req, res, next) => {
 		});
 });
 
-router.post('/uploadFile', upload.single('Sumary'), (req, res, next) => {
-	console.log('server side in the upload file', req.file);
-	/* const file = new File({
-		_id: new mongoose.Types.ObjectId(),
-		name: req.body.name,
-		price: req.body.price,
-	}); */
+router.post('/uploadMaterial', async (req, res, next) => {
+	const { Subject, Theme, Year, Sumary, Questions } = req.body;
+	try {
+		const result = await Material.create({
+			Subject,
+			Theme,
+			Year,
+			Sumary,
+			Questions,
+		});
+		res.json({ result });
+	} catch (error) {
+		console.log(error);
+	}
+});
 
-	/* const { Subject, Theme, Year, Sumary, Questions } = req.body.data;
-	console.log('server side in the upload file', {
-		Subject,
-		Theme,
-		Year,
-		Sumary,
-		Questions,
-	}); */
-	/* Announcements.create({ title, text })
-		.then((result) => {
-			res.json({ result });
+router.get('/getMaterial', (req, res, next) => {
+	Material.find()
+		.sort({ Subject: 'ascending' })
+		.then((material) => {
+			res.json({ material });
 		})
 		.catch((error) => {
 			next(error);
-		}); */
+		});
 });
 
 router.get('/getAnnouncement', (req, res, next) => {
