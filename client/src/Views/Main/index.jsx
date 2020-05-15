@@ -11,6 +11,8 @@ import StudentsList from '../StudentsList';
 import TestsList from '../TestsList';
 import Announcements from '../Announcements';
 import Profile from '../Profile';
+import Sumary from '../Sumary';
+import Questions from '../Questions';
 //Routes
 import { BrowserRouter, Switch, Route, Redirect, Link } from 'react-router-dom';
 
@@ -19,6 +21,14 @@ class index extends Component {
 		console.log('this is the main', this.props);
 		return (
 			<div className="Main">
+				<Route
+					path="/dashboard/sumary/:id"
+					render={(props) => <Sumary {...props} />}
+				/>
+				<Route
+					path="/dashboard/questions/:id"
+					render={(props) => <Questions {...props} />}
+				/>
 				<Route
 					path="/dashboard/overview"
 					render={(props) => <Dashboard user={this.props.user} {...props} />}
