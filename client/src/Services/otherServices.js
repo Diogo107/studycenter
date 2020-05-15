@@ -66,6 +66,15 @@ const newAnnouncement = async (data) => {
 };
 export { newAnnouncement };
 
+const uploadFile = async (data) => {
+	try {
+		console.log('other services', data);
+	} catch (error) {
+		console.log(error);
+	}
+};
+export { uploadFile };
+
 const getAnnouncement = async (date) => {
 	try {
 		const result = await instance.get('/getAnnouncement');
