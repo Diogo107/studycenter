@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { push as Menu } from 'react-burger-menu';
 import { Form, Button } from 'react-bootstrap';
 import logo from '../../asset/images/logo.png';
+import menu from '../../asset/images/menu.png';
 import Avatar from '@material-ui/core/Avatar';
 
 export default class index extends Component {
@@ -19,6 +20,7 @@ export default class index extends Component {
 		this.componentDidMount = this.componentDidMount.bind(this);
 		this.handleSignOut = this.handleSignOut.bind(this);
 		this.changeInput = this.changeInput.bind(this);
+		this.showSidebar = this.showSidebar.bind(this);
 	}
 
 	componentDidMount() {
@@ -32,6 +34,16 @@ export default class index extends Component {
 	handleSignOut() {
 		signOut();
 		this.props.updateUserInformation(null);
+	}
+	showSidebar() {
+		let elements = document.getElementsByClassName('sidebar');
+		console.log(elements);
+		for (let i = 0; i < elements.length; i++) {
+			elements[i].style.display == 'none'
+				? (elements[i].style.display = 'block')
+				: (elements[i].style.display = 'none');
+		}
+		console.log('hello', elements);
 	}
 
 	changeInput(path) {
@@ -83,8 +95,11 @@ export default class index extends Component {
 			<>
 				{(this.state.user && (
 					<Navbar className="Navbar__User" bg="transparent" expand="lg">
+						<button id="Logo__Small" onClick={this.showSidebar}>
+							<img className="logo" src={menu} />
+						</button>
 						<Link to="/dashboard/overview">
-							<img className="logo" src={logo} />
+							<img className="logo" id="Logo__Large" src={logo} />
 						</Link>
 						<Navbar.Brand className="navuser__path" href="/">
 							{this.changeInput(this.props.history.location.pathname)}

@@ -39,3 +39,58 @@
 .main {
 	min-height: 80vh;
 }
+
+@media screen and (max-width: 640px) {
+	.Main {
+		margin-left: 0 !important;
+	}
+	.Dashboard {
+		flex-direction: column !important;
+		.left {
+			width: 80vw !important;
+		}
+		.announcements {
+			margin-top: 2em;
+			width: 80vw !important;
+		}
+	}
+	.Profile {
+		flex-direction: column !important;
+		height: fit-content;
+		.Profile__Left {
+			width: 100% !important;
+		}
+		.Profile__Right {
+			margin-top: 2em;
+			width: 100% !important;
+		}
+	}
+	#Logo__Small {
+		display: block !important;
+		background-color: transparent;
+		border: none;
+		img {
+			filter: invert(1);
+		}
+		margin-left: 0;
+	}
+	#Logo__Large {
+		display: none;
+	}
+	.sidebar {
+		padding-top: 0.5em !important;
+		overflow: scroll !important;
+		z-index: 2 !important;
+	}
+	.sidebar__item {
+		text-align: left;
+		height: 40px !important;
+	}
+	.navuser__path {
+		letter-spacing: 2px;
+		font-size: 1em;
+	}
+	.links {
+		display: none;
+	}
+}

@@ -1,6 +1,7 @@
 .Navbar__User {
 	display: flex;
 	justify-content: space-between;
+	height: auto;
 	.navuser__path {
 		color: white;
 		font-size: 2.5em;
@@ -16,5 +17,8 @@
 		h6 {
 			margin: auto 1em;
 		}
+	}
+	#Logo__Small {
+		display: none;
 	}
 }
