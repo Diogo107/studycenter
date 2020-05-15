@@ -31,13 +31,13 @@ class index extends Component {
 				'Ohhh pateta, não escreveste nem resumos nem questões...corrige lá isso de uma vez....'
 			);
 		} else {
-			/* const result = await uploadMaterial({
+			const result = await uploadMaterial({
 				Subject,
 				Theme,
 				Year,
 				Sumary,
 				Questions,
-			}); */
+			});
 			this.setState({
 				Subject: '',
 				Theme: '',
@@ -74,6 +74,8 @@ class index extends Component {
 						placeholder="Ano Lectivo"
 						type="number"
 						name="Year"
+						min="1"
+						max="12"
 						required
 						onChange={this.handleInputChange}
 					/>
