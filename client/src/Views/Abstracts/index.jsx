@@ -91,13 +91,13 @@ class index extends Component {
 											</Link>
 										</td>
 									)}
-									{single.Questions && (
+									{(single.Questions && (
 										<td>
 											<Link to={'/dashboard/questions/' + single._id}>
 												<img src="https://image.flaticon.com/icons/png/512/1164/1164713.png" />
 											</Link>
 										</td>
-									)}
+									)) || <td></td>}
 								</tr>
 							))}
 					</tbody>

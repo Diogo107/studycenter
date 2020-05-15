@@ -25,6 +25,7 @@ class index extends Component {
 	saveContent = async (event) => {
 		event.preventDefault();
 		let { Subject, Theme, Year, Sumary, Questions } = this.state;
+		console.log({ Subject, Theme, Year, Sumary, Questions });
 		const result = await uploadMaterial({
 			Subject,
 			Theme,
