@@ -26,21 +26,27 @@ class index extends Component {
 		event.preventDefault();
 		let { Subject, Theme, Year, Sumary, Questions } = this.state;
 		console.log({ Subject, Theme, Year, Sumary, Questions });
-		const result = await uploadMaterial({
-			Subject,
-			Theme,
-			Year,
-			Sumary,
-			Questions,
-		});
-		this.setState({
-			Subject: '',
-			Theme: '',
-			Year: '',
-			Sumary: '',
-			Questions: '',
-		});
-		this.props.history.push('subjects');
+		if (Sumary == undefined || Questions == undefined) {
+			alert(
+				'Ohhh pateta, não escreveste nem resumos nem questões...corrige lá isso de uma vez....'
+			);
+		} else {
+			/* const result = await uploadMaterial({
+				Subject,
+				Theme,
+				Year,
+				Sumary,
+				Questions,
+			}); */
+			this.setState({
+				Subject: '',
+				Theme: '',
+				Year: '',
+				Sumary: '',
+				Questions: '',
+			});
+			this.props.history.push('subjects');
+		}
 	};
 
 	render() {
