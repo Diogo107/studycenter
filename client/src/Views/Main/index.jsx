@@ -6,6 +6,7 @@ import Chat from '../Chat';
 import Annotations from '../Annotations';
 import Abstracts from '../Abstracts';
 import FAQS from '../FAQ';
+import InsertContent from '../InsertContent';
 import StudentsList from '../StudentsList';
 import TestsList from '../TestsList';
 import Announcements from '../Announcements';
@@ -32,6 +33,10 @@ class index extends Component {
 					render={(props) => <Abstracts {...props} />}
 				/>
 				<Route path="/dashboard/faqs" render={(props) => <FAQS {...props} />} />
+				<Route
+					path="/dashboard/insert"
+					render={(props) => <InsertContent {...props} />}
+				/>
 				<Route
 					path="/dashboard/students-list"
 					render={(props) => <StudentsList {...props} />}
