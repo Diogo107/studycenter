@@ -69,6 +69,7 @@ export { newAnnouncement };
 const uploadFile = async (data) => {
 	try {
 		console.log('other services', data);
+		const result = await instance.post('/uploadFile', data);
 	} catch (error) {
 		console.log(error);
 	}

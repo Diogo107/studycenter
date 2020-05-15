@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './style.scss';
 import { Form, Input } from 'reactstrap';
 import { Button } from 'react-bootstrap';
+import { uploadFile } from '../../Services/otherServices';
 
 class index extends Component {
 	state = {};
@@ -28,13 +29,16 @@ class index extends Component {
 	saveContent = (event) => {
 		event.preventDefault();
 		let { Subject, Theme, Year, Sumary, Questions } = this.state;
+		/* let Sumary = this.state.Sumary;
+	    let = Questions;  */
+		uploadFile({ Subject, Theme, Year, Sumary, Questions });
 		console.log('saveContent', this.state);
 	};
 
 	render() {
 		return (
 			<div className="Insert__Content">
-				<Form onSubmit={this.saveContent}>
+				<Form onSubmit={this.saveContent} encType="multipart/form-data">
 					<Input
 						value={this.state.Subject}
 						placeholder="Disciplina"
