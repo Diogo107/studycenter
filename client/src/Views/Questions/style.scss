@@ -1,0 +1,23 @@
+.Summary__View {
+	background-color: white;
+	width: 100%;
+	min-height: 90vh;
+	padding: 2em 4em;
+	h1,
+	h6 {
+		text-align: start;
+		margin-bottom: 1em;
+	}
+	h6 {
+		font-style: italic;
+	}
+	h1 {
+		border-bottom: black 1px solid;
+	}
+	p {
+		margin-top: 2em;
+		padding-left: 2em;
+		text-align: justify;
+		white-space: pre-line;
+	}
+}
