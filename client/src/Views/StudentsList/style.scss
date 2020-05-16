@@ -3,6 +3,18 @@
 	width: 100%;
 	background-color: white;
 	padding: 1em;
+	tr {
+		.scope:hover {
+			transition: all 1s ease-in-out;
+			transform: scale(1.2);
+		}
+		a:hover {
+			text-decoration: none;
+		}
+		th {
+			color: black;
+		}
+	}
 	h3 {
 		text-align: start;
 		margin: 1em;

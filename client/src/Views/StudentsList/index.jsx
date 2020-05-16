@@ -7,6 +7,8 @@ import NewTest from '../../Components/NewTest';
 import TestsList from '../../Components/TestsList';
 import Announcements from '../../Components/Announcements';
 import NewStudent from '../../Components/NewStudent';
+//Services
+import { Link } from 'react-router-dom';
 import { signUp } from '../../Services/authentication';
 import { StudentsList } from './../../Services/otherServices';
 
@@ -136,8 +138,9 @@ class index extends Component {
 						{this.state.filteredList &&
 							this.state.filteredList.map((single) => (
 								<tr>
-									{console.log('this is single')}
-									<th scope="row">{single.name}</th>
+									<Link to={'/dashboard/student/' + single._id}>
+										<th className="scope">{single.name}</th>
+									</Link>
 									<td>{single.year}º</td>
 									<td>{single.behaviour}</td>
 									<td>{single.achievement}</td>
