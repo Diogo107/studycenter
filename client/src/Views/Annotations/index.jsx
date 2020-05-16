@@ -22,6 +22,7 @@ class index extends Component {
 	async componentDidMount() {
 		this.setState({
 			notes: this.props.user.notes,
+			filteredNotes: this.props.user.notes,
 		});
 		console.log('annotations', this.state);
 	}
@@ -42,12 +43,13 @@ class index extends Component {
 		await updateNotes({ notes, userId });
 	}
 
-	handleInputChange(event) {
+	async handleInputChange(event) {
 		const value = event.target.value;
 		const inputName = event.target.name;
-		this.setState({
+		await this.setState({
 			[inputName]: value,
 		});
+		this.filterNote();
 	}
 
 	async erase(event) {
@@ -61,6 +63,16 @@ class index extends Component {
 		let userId = this.props.user._id;
 		await updateNotes({ notes, userId });
 	}
+	filterNote = async () => {
+		let filter = this.state.filteredWord;
+		let filteredNotes = this.state.notes.filter((single) => {
+			return single.text.toLowerCase().includes(filter.toLowerCase());
+		});
+		this.setState({
+			filteredNotes,
+		});
+		console.log('hello', this.state);
+	};
 
 	render() {
 		return (
@@ -81,26 +93,31 @@ class index extends Component {
 				</Form>
 				<InputGroup>
 					{/* <Label>Pesquisa:</Label> */}
-					<Input placeholder="Que nota estamos à procura...?" />
+					<Input
+						name="filteredWord"
+						placeholder="Que nota estamos à procura...?"
+						onChange={this.handleInputChange}
+					/>
 				</InputGroup>
 				<section>
-					{this.state.notes.map((single) => (
-						<div class="post-it">
-							<p class="sticky taped">
-								<form onSubmit={this.erase}>
-									<button value={single._id}>
-										<img src={rubber} />
-									</button>
-									<strong>
-										{moment(single.date).format('DD [/] MM [/] Y')}
-									</strong>
-									<br />
-									<br />
-									{single.text}
-								</form>
-							</p>
-						</div>
-					))}
+					{this.state.filteredNotes &&
+						this.state.filteredNotes.map((single) => (
+							<div class="post-it">
+								<p class="sticky taped">
+									<form onSubmit={this.erase}>
+										<button value={single._id}>
+											<img src={rubber} />
+										</button>
+										<strong>
+											{moment(single.date).format('DD [/] MM [/] Y')}
+										</strong>
+										<br />
+										<br />
+										{single.text}
+									</form>
+								</p>
+							</div>
+						))}
 				</section>
 			</div>
 		);

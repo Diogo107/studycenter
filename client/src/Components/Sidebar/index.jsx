@@ -30,7 +30,7 @@ export default class index extends Component {
 
 	render() {
 		return (
-			<div className="sidebar Margin__Top__For__Navbar">
+			<div className="sidebar">
 				<div className="sidebar__item">
 					<Link to="/dashboard/overview">Geral</Link>
 				</div>
