@@ -18,9 +18,8 @@ import { BrowserRouter, Switch, Route, Redirect, Link } from 'react-router-dom';
 
 class index extends Component {
 	render() {
-		console.log('this is the main', this.props);
 		return (
-			<div className="Main">
+			<div className="Main Margin__Top__For__Navbar">
 				<Route
 					path="/dashboard/sumary/:id"
 					render={(props) => <Sumary {...props} />}

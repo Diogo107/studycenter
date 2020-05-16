@@ -31,7 +31,7 @@ export default class index extends Component {
 	render() {
 		return (
 			<div>
-				<Navbar className="navbar" bg="transparent" expand="lg">
+				<Navbar className="navbar fixed" bg="transparent" expand="lg">
 					<Link to="/">
 						<img className="logo" src={logo} />
 					</Link>

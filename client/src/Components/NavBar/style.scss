@@ -3,6 +3,13 @@
 	width: 50px;
 }
 
+.fixed {
+	position: fixed;
+	width: -webkit-fill-available;
+	top: 0px;
+	z-index: 2;
+}
+
 .navbar {
 	background-image: linear-gradient(to left, #f39400, #0c3a4b);
 	height: 70px;

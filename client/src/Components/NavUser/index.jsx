@@ -94,7 +94,7 @@ export default class index extends Component {
 		return (
 			<>
 				{(this.state.user && (
-					<Navbar className="Navbar__User" bg="transparent" expand="lg">
+					<Navbar className="Navbar__User fixed" bg="transparent" expand="lg">
 						<button id="Logo__Small" onClick={this.showSidebar}>
 							<img className="logo" src={menu} />
 						</button>
