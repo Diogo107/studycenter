@@ -95,6 +95,7 @@ router.get('/getMaterial', (req, res, next) => {
 	Material.find()
 		.sort({ Subject: 'ascending' })
 		.then((material) => {
+			console.log(material);
 			res.json({ material });
 		})
 		.catch((error) => {

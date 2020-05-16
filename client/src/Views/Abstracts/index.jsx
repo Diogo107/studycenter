@@ -24,6 +24,8 @@ class index extends Component {
 		this.setState({
 			material,
 			filteredMaterial: material,
+			Subject: '',
+			Theme: '',
 		});
 	}
 
@@ -38,21 +40,24 @@ class index extends Component {
 	};
 
 	filterList = async () => {
-		let filteredMaterial = await this.state.material.filter((single) => {
+		/* let filteredMaterial = await this.state.material.filter((single) => {
 			return single.Subject.includes(this.state.Subject);
 		});
-		this.setState({ filteredMaterial });
-		/* let filter = {
+		this.setState({ filteredMaterial }); */
+		let filter = {
 			Subject: this.state.Subject,
 			Theme: this.state.Theme,
 		};
-		let filteredMaterial = await this.state.material.filter(function (item) {
-			for (var key in filter) {
-				if (item[key] === undefined || item[key] != filter[key]) return false;
+
+		let filteredMaterial = this.state.material.filter((single) => {
+			if (
+				single.Subject.toLowerCase().includes(filter.Subject.toLowerCase()) &&
+				single.Theme.toLowerCase().includes(filter.Theme.toLowerCase())
+			) {
+				return true;
 			}
-			return true;
 		});
-		this.setState({ filteredMaterial }); */
+		this.setState({ filteredMaterial });
 	};
 
 	render() {
@@ -66,7 +71,7 @@ class index extends Component {
 					</InputGroup>
 					<InputGroup>
 						<Label>Tema</Label>
-						<Input name="Theme" />
+						<Input name="Theme" onChange={this.handleInputChange} />
 					</InputGroup>
 				</section>
 				<Table hover>

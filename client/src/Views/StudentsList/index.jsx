@@ -61,13 +61,17 @@ class index extends Component {
 	async filterList() {
 		console.log('hellllllllo', this.state);
 		let filteredList = await this.state.list.filter((single) => {
-			return single.name.includes(this.state.name);
+			if (
+				single.name.toLowerCase().includes(this.state.name.toLowerCase()) &&
+				single.year.toString().includes(this.state.year.toString()) &&
+				single.behaviour.toString().includes(this.state.behaviour.toString()) &&
+				single.achievement
+					.toString()
+					.includes(this.state.achievement.toString())
+			) {
+				return true;
+			}
 		});
-
-		/* filteredList = await filteredList.filter((single) => {
-			return single.year == this.state.year;
-		}); */
-
 		this.setState({ filteredList });
 	}
 
