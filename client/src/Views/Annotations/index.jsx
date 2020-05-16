@@ -49,7 +49,9 @@ class index extends Component {
 		await this.setState({
 			[inputName]: value,
 		});
-		this.filterNote();
+		if (inputName == 'filteredWord') {
+			this.filterNote();
+		}
 	}
 
 	async erase(event) {
