@@ -29,6 +29,18 @@ const newTest = async (id) => {
 };
 export { newTest };
 
+const updateStudent = async (data) => {
+	try {
+		console.log('other services', data);
+		const result = await instance.post('/updateStudent', { data });
+		const posts = result.data.result;
+		return posts;
+	} catch (error) {
+		throw error;
+	}
+};
+export { updateStudent };
+
 const updateNotes = async (id) => {
 	try {
 		console.log('other services post', id);

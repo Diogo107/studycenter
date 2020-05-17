@@ -13,6 +13,7 @@ import Announcements from '../Announcements';
 import Profile from '../Profile';
 import Sumary from '../Sumary';
 import Questions from '../Questions';
+import SingleStudent from '../SingleStudent';
 //Routes
 import { BrowserRouter, Switch, Route, Redirect, Link } from 'react-router-dom';
 
@@ -27,6 +28,10 @@ class index extends Component {
 				<Route
 					path="/dashboard/questions/:id"
 					render={(props) => <Questions {...props} />}
+				/>
+				<Route
+					path="/dashboard/student/:id"
+					render={(props) => <SingleStudent {...props} />}
 				/>
 				<Route
 					path="/dashboard/overview"

@@ -30,7 +30,17 @@ class App extends Component {
 		this.setState({
 			loaded: true,
 		});
+		setInterval(() => {
+			this.checkUpdatedUser();
+		}, 5000);
 	}
+
+	checkUpdatedUser = async () => {
+		let user = await loadUserInformation();
+		if (user !== this.state.user) {
+			this.setState({ user });
+		}
+	};
 
 	updateUserInformation(user) {
 		this.setState({

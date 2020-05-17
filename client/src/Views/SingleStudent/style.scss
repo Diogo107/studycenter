@@ -1,0 +1,31 @@
+.Single__Student {
+	background-color: white;
+	width: 100%;
+	min-height: 90vh;
+	padding: 3em;
+	input {
+		margin-bottom: 1em;
+		border: none;
+		border-radius: 0px;
+		border-bottom: lightgrey solid 0.5px;
+		padding-bottom: 0;
+		&:focus,
+		&:active {
+			outline-width: 0;
+			border-bottom: 1px solid black;
+			box-shadow: none;
+		}
+	}
+	form > div {
+		display: flex;
+		input {
+			padding-left: 0;
+			margin-right: 1em;
+		}
+	}
+	label {
+		text-align: start;
+		width: 100%;
+		align-self: center;
+	}
+}
