@@ -13,9 +13,10 @@ class index extends Component {
 		const list = await StudentsList();
 		const id = this.props.match.params.id;
 		const student = list.filter((single) => single._id == id);
-		const { name, email, year, behaviour, achievement } = student[0];
+		const { active, name, email, year, behaviour, achievement } = student[0];
 		this.setState({
 			id,
+			active,
 			name,
 			email,
 			year,
@@ -27,9 +28,10 @@ class index extends Component {
 	handleSubmit = async (event) => {
 		event.preventDefault();
 		const data = this.state;
-		let { name, email, year, behaviour, achievement } = this.state;
+		let { active, name, email, year, behaviour, achievement } = this.state;
 		const final = await updateStudent(data);
-		this.setState({ name, email, year, behaviour, achievement });
+		this.setState({ active, name, email, year, behaviour, achievement });
+		this.props.history.push('/dashboard/students-list');
 	};
 
 	handleInputChange = async (event) => {
@@ -44,6 +46,18 @@ class index extends Component {
 	render() {
 		return (
 			<div className="Single__Student">
+				<div>
+					{(this.state.active && (
+						<div className="Green__Ball" alt="Activo"></div>
+					)) || <div className="Red__Ball" alt="Activo"></div>}
+					<Button
+						onClick={() => {
+							this.setState({ active: !this.state.active });
+						}}
+					>
+						Change
+					</Button>
+				</div>
 				<Form onSubmit={this.handleSubmit}>
 					<Label>Nome</Label>
 					<Input

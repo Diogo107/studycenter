@@ -13,7 +13,10 @@ import { signUp } from '../../Services/authentication';
 import { StudentsList } from './../../Services/otherServices';
 //Images
 import Edit from '../../asset/images/editar.png';
-import Plus from '../../asset/images/plus.png';
+import AddUserActive from '../../asset/images/AddUserActive.png';
+import AddUserInactive from '../../asset/images/AddUserInactive.png';
+import AllUsersActive from '../../asset/images/AllUsersActive.png';
+import AllUsersInactive from '../../asset/images/AllUsersInactive.png';
 
 class index extends Component {
 	constructor(props) {
@@ -25,6 +28,7 @@ class index extends Component {
 			year: '',
 			behaviour: '',
 			achievement: '',
+			seeAll: false,
 		};
 		this.newStudentTab = this.newStudentTab.bind(this);
 		this.handleInputChange = this.handleInputChange.bind(this);
@@ -84,12 +88,39 @@ class index extends Component {
 		return (
 			<div className="Students__List">
 				<div className="head">
+					<button
+						onClick={() => {
+							this.setState({ seeAll: !this.state.seeAll });
+						}}
+					>
+						{(this.state.seeAll && (
+							<img
+								src={AllUsersActive}
+								alt="Adicionar novo aluno"
+								style={{ width: '50px', height: '50px' }}
+							/>
+						)) || (
+							<img
+								src={AllUsersInactive}
+								alt="Adicionar novo aluno"
+								style={{ width: '50px', height: '50px' }}
+							/>
+						)}
+					</button>
 					<button onClick={this.newStudentTab}>
-						<img
-							src={Plus}
-							alt="Adicionar novo aluno"
-							style={{ width: '50px', height: '50px' }}
-						/>
+						{(this.state.addStudent && (
+							<img
+								src={AddUserActive}
+								alt="Adicionar novo aluno"
+								style={{ width: '50px', height: '50px' }}
+							/>
+						)) || (
+							<img
+								src={AddUserInactive}
+								alt="Adicionar novo aluno"
+								style={{ width: '50px', height: '50px' }}
+							/>
+						)}
 					</button>
 				</div>
 				{this.state.addStudent && (
@@ -102,6 +133,7 @@ class index extends Component {
 				<Table hover>
 					<thead>
 						<tr>
+							{this.state.seeAll && <th style={{ width: '25px' }}>Estado</th>}
 							<th>Nome</th>
 							<th>Ano</th>
 							<th>Comportamento</th>
@@ -110,6 +142,7 @@ class index extends Component {
 					</thead>
 					<tbody>
 						<tr>
+							{this.state.seeAll && <th style={{ width: '25px' }}></th>}
 							<th scope="row">
 								{' '}
 								<Input
@@ -146,6 +179,11 @@ class index extends Component {
 						{this.state.filteredList &&
 							this.state.filteredList.map((single) => (
 								<tr>
+									{this.state.seeAll && (
+										<th>
+											<div className="Green__Ball" alt="Activo"></div>
+										</th>
+									)}
 									<th>{single.name}</th>
 									<td>{single.year}º</td>
 									<td>{single.behaviour}</td>
