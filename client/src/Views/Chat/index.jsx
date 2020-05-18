@@ -9,6 +9,9 @@ import Announcements from '../../Components/Announcements';
 //Images
 import Avatar from './../../asset/images/avatar.png';
 import { StudentsList } from '../../Services/otherServices';
+//Services
+import { Link } from 'react-router-dom';
+import { sendMessage } from '../../Services/otherServices';
 
 class index extends Component {
 	constructor(props) {
@@ -17,14 +20,69 @@ class index extends Component {
 	}
 
 	async componentDidMount() {
+		console.log('this is props', this.props);
 		let listOfPeople = await StudentsList();
+		listOfPeople = listOfPeople.filter((single) => {
+			return single._id !== this.props.user._id;
+		});
 		console.log('list of people', listOfPeople);
+		this.setState({ listOfPeople });
 	}
+
+	handleInputChange = async (event) => {
+		const value = event.target.value;
+		const inputName = event.target.name;
+		await this.setState({
+			[inputName]: value,
+		});
+		console.log(this.state);
+	};
+
+	sendMessage = async (event) => {
+		event.preventDefault();
+		let otherId = this.props.match.params.id;
+		let myId = this.props.user._id;
+		let name = this.props.user.name;
+		let content = this.state.message;
+		console.log(content);
+		let message = sendMessage({ content, myId, otherId, name });
+		console.log('this is the submit', this.state, otherId, myId, name);
+	};
 
 	render() {
 		return (
 			<div className="Chat">
 				<div className="List__of__People">
+					<Input placeholder="This will be to search person" />
+					{this.state.listOfPeople &&
+						this.state.listOfPeople.map((single) => (
+							<Link to={'/dashboard/chat/' + single._id}>
+								<div className="Person__Avatar">
+									<img src={Avatar} alt="avatar" />
+									<h5>{single.name}</h5>
+								</div>
+							</Link>
+						))}
+					<div className="Person__Avatar">
+						<img src={Avatar} alt="avatar" />
+						<h5>Lorem Name</h5>
+					</div>
+					<div className="Person__Avatar">
+						<img src={Avatar} alt="avatar" />
+						<h5>Lorem Name</h5>
+					</div>
+					<div className="Person__Avatar">
+						<img src={Avatar} alt="avatar" />
+						<h5>Lorem Name</h5>
+					</div>
+					<div className="Person__Avatar">
+						<img src={Avatar} alt="avatar" />
+						<h5>Lorem Name</h5>
+					</div>
+					<div className="Person__Avatar">
+						<img src={Avatar} alt="avatar" />
+						<h5>Lorem Name</h5>
+					</div>
 					<div className="Person__Avatar">
 						<img src={Avatar} alt="avatar" />
 						<h5>Lorem Name</h5>
@@ -56,9 +114,14 @@ class index extends Component {
 						</div>
 					</div>
 					<div className="Text__Input__Field">
-						<Form>
-							<Input type="textarea" name="text" id="exampleText" />
-							<Button>Enviar</Button>
+						<Form onSubmit={this.sendMessage}>
+							<Input
+								type="text"
+								name="message"
+								id="exampleText"
+								onChange={this.handleInputChange}
+							/>
+							<Button type="submit">Enviar</Button>
 						</Form>
 					</div>
 				</div>

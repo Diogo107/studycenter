@@ -114,6 +114,19 @@ const newAnnouncement = async (data) => {
 };
 export { newAnnouncement };
 
+const sendMessage = async (data) => {
+	try {
+		console.log('other services post', data);
+		const result = await instance.post('/sendMessage', { data });
+		console.log('other services result', result);
+		const posts = result.data.posts;
+		return posts;
+	} catch (error) {
+		throw error;
+	}
+};
+export { sendMessage };
+
 const uploadMaterial = async (data) => {
 	console.log('other services', data);
 	try {

@@ -44,7 +44,15 @@ class index extends Component {
 					path="/dashboard/overview"
 					render={(props) => <Dashboard user={this.props.user} {...props} />}
 				/>
-				<Route path="/dashboard/chat" render={(props) => <Chat {...props} />} />
+				<Route
+					path="/dashboard/chat"
+					exact
+					render={(props) => <Chat user={this.props.user} {...props} />}
+				/>
+				<Route
+					path="/dashboard/chat/:id"
+					render={(props) => <Chat user={this.props.user} {...props} />}
+				/>
 				<Route
 					path="/dashboard/annotations"
 					render={(props) => <Annotations user={this.props.user} {...props} />}

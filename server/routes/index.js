@@ -9,6 +9,7 @@ const Material = require('./../models/material');
 const Announcements = require('../models/announcements');
 const Article = require('../models/article');
 const DailyChallenge = require('../models/dailyChallenge');
+const Chat = require('../models/chat');
 const multer = require('multer');
 const upload = multer({ dest: 'uploadedFiles/' });
 const uploader = require('./../multer-configure.js');
@@ -88,6 +89,32 @@ router.post('/uploadMaterial', async (req, res, next) => {
 			Questions,
 		});
 		res.json({ result });
+	} catch (error) {
+		console.log(error);
+	}
+});
+
+router.post('/sendMessage', async (req, res, next) => {
+	let { content, myId, otherId, name } = req.body.data;
+	let data = {
+		content: {
+			message: content,
+			name,
+		},
+		users: [myId, otherId],
+	};
+	let conversationId;
+	console.log('req.body', data);
+	try {
+		const list = await Chat.find();
+		await list.map((single) => {
+			if (single.users.includes(myId) && single.users.includes(otherId)) {
+				conversationId = single._id;
+			}
+		});
+
+		console.log('rconversation Id', conversationId);
+		res.json({});
 	} catch (error) {
 		console.log(error);
 	}

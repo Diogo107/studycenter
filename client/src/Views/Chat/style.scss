@@ -1,12 +1,18 @@
 .Chat {
 	background-color: #ffffff;
 	width: 100%;
-	height: 100%;
+	height: 723px;
 	min-height: 87vh;
 	display: flex;
+	input {
+		border-top: none;
+		border-left: none;
+	}
 	.List__of__People {
 		border-right: solid black 1px;
 		width: 25%;
+		height: 703px;
+		overflow: auto;
 		.Person__Avatar {
 			display: flex;
 			justify-content: space-between;
