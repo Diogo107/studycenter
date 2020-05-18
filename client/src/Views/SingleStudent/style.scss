@@ -3,6 +3,15 @@
 	width: 100%;
 	min-height: 90vh;
 	padding: 3em;
+	.User__State {
+		display: flex;
+		align-content: center;
+		button {
+			margin-left: 2em;
+			background-color: transparent;
+			border: none;
+		}
+	}
 	input {
 		margin-bottom: 1em;
 		border: none;
@@ -30,7 +39,8 @@
 	}
 	.Green__Ball {
 		padding: 10px;
-		margin-bottom: 2em;
+		margin-top: auto;
+		margin-bottom: auto;
 		top: calc(50% - 150px);
 		left: calc(50% - 150px);
 		width: 25px;
@@ -43,7 +53,8 @@
 	}
 	.Red__Ball {
 		padding: 10px;
-		margin-bottom: 2em;
+		margin-top: auto;
+		margin-bottom: auto;
 		top: calc(50% - 150px);
 		left: calc(50% - 150px);
 		width: 25px;

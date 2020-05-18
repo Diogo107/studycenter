@@ -3,6 +3,9 @@ import './style.scss';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 //Services
 import { StudentsList, updateStudent } from '../../Services/otherServices';
+//Images
+import OnSwitch from '../../asset/images/OnSwitch.png';
+import OffSwitch from '../../asset/images/OffSwitch.png';
 
 class index extends Component {
 	constructor(props) {
@@ -46,17 +49,29 @@ class index extends Component {
 	render() {
 		return (
 			<div className="Single__Student">
-				<div>
+				<div className="User__State">
 					{(this.state.active && (
 						<div className="Green__Ball" alt="Activo"></div>
 					)) || <div className="Red__Ball" alt="Activo"></div>}
-					<Button
+					<button
 						onClick={() => {
 							this.setState({ active: !this.state.active });
 						}}
 					>
-						Change
-					</Button>
+						{(this.state.active && (
+							<img
+								src={OffSwitch}
+								alt="Tornar inactivo."
+								style={{ width: '50px' }}
+							/>
+						)) || (
+							<img
+								src={OnSwitch}
+								alt="Tornar activo."
+								style={{ width: '50px' }}
+							/>
+						)}
+					</button>
 				</div>
 				<Form onSubmit={this.handleSubmit}>
 					<Label>Nome</Label>
