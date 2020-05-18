@@ -41,6 +41,18 @@ const updateStudent = async (data) => {
 };
 export { updateStudent };
 
+const updateMaterial = async (data) => {
+	try {
+		console.log('other services', data);
+		const result = await instance.post('/updateMaterial', { data });
+		const posts = result.data.result;
+		return posts;
+	} catch (error) {
+		throw error;
+	}
+};
+export { updateMaterial };
+
 const updateNotes = async (id) => {
 	try {
 		console.log('other services post', id);

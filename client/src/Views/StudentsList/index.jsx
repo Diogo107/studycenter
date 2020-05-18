@@ -11,6 +11,8 @@ import NewStudent from '../../Components/NewStudent';
 import { Link } from 'react-router-dom';
 import { signUp } from '../../Services/authentication';
 import { StudentsList } from './../../Services/otherServices';
+//Images
+import Edit from '../../asset/images/editar.png';
 
 class index extends Component {
 	constructor(props) {
@@ -138,12 +140,20 @@ class index extends Component {
 						{this.state.filteredList &&
 							this.state.filteredList.map((single) => (
 								<tr>
-									<Link to={'/dashboard/student/' + single._id}>
-										<th className="scope">{single.name}</th>
-									</Link>
+									<th>{single.name}</th>
 									<td>{single.year}º</td>
 									<td>{single.behaviour}</td>
 									<td>{single.achievement}</td>
+									<td>
+										<Link to={'/dashboard/student/' + single._id}>
+											<img
+												className="scope"
+												src={Edit}
+												alt="editar"
+												style={{ width: '20px', height: '20px' }}
+											/>
+										</Link>
+									</td>
 								</tr>
 							))}
 					</tbody>

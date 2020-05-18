@@ -9,6 +9,8 @@ import Announcements from '../../Components/Announcements';
 //Services
 import { getMaterial } from '../../Services/otherServices';
 import { Link } from 'react-router-dom';
+//Images
+import Edit from '../../asset/images/editar.png';
 
 class index extends Component {
 	constructor(props) {
@@ -103,6 +105,16 @@ class index extends Component {
 											</Link>
 										</td>
 									)) || <td></td>}
+									<td>
+										<Link to={'/dashboard/edirContent/' + single._id}>
+											<img
+												className="scope"
+												src={Edit}
+												alt="editar"
+												style={{ width: '20px', height: '20px' }}
+											/>
+										</Link>
+									</td>
 								</tr>
 							))}
 					</tbody>

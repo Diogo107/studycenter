@@ -115,6 +115,23 @@ router.post('/updateStudent', async (req, res, next) => {
 	}
 });
 
+router.post('/updateMaterial', async (req, res, next) => {
+	const { id, Subject, Theme, Year, Sumary, Questions } = req.body.data;
+	console.log({ id, Subject, Theme, Year, Sumary, Questions });
+	try {
+		const result = await Material.findByIdAndUpdate(id, {
+			Subject,
+			Theme,
+			Year,
+			Sumary,
+			Questions,
+		});
+		res.json({ result });
+	} catch (error) {
+		console.log(error);
+	}
+});
+
 router.get('/getMaterial', (req, res, next) => {
 	Material.find()
 		.sort({ Subject: 'ascending' })

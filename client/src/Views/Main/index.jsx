@@ -14,6 +14,8 @@ import Profile from '../Profile';
 import Sumary from '../Sumary';
 import Questions from '../Questions';
 import SingleStudent from '../SingleStudent';
+import EditContent from '../EditContent';
+import Articles from '../Articles';
 //Routes
 import { BrowserRouter, Switch, Route, Redirect, Link } from 'react-router-dom';
 
@@ -34,6 +36,10 @@ class index extends Component {
 					render={(props) => <SingleStudent {...props} />}
 				/>
 				<Route
+					path="/dashboard/edirContent/:id"
+					render={(props) => <EditContent {...props} />}
+				/>
+				<Route
 					path="/dashboard/overview"
 					render={(props) => <Dashboard user={this.props.user} {...props} />}
 				/>
@@ -45,6 +51,10 @@ class index extends Component {
 				<Route
 					path="/dashboard/subjects"
 					render={(props) => <Abstracts {...props} />}
+				/>
+				<Route
+					path="/dashboard/articles"
+					render={(props) => <Articles {...props} />}
 				/>
 				<Route path="/dashboard/faqs" render={(props) => <FAQS {...props} />} />
 				<Route
