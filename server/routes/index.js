@@ -7,6 +7,7 @@ const Tests = require('./../models/tests');
 const User = require('./../models/user');
 const Material = require('./../models/material');
 const Announcements = require('../models/announcements');
+const Article = require('../models/article');
 const multer = require('multer');
 const upload = multer({ dest: 'uploadedFiles/' });
 const uploader = require('./../multer-configure.js');
@@ -130,6 +131,29 @@ router.post('/updateMaterial', async (req, res, next) => {
 	} catch (error) {
 		console.log(error);
 	}
+});
+
+router.post('/createArticle', async (req, res, next) => {
+	const { title, content } = req.body.data;
+	console.log({ title, content });
+	try {
+		const result = await Article.create({ title, content });
+		res.json({ result });
+	} catch (error) {
+		console.log(error);
+	}
+});
+
+router.get('/getArticles', (req, res, next) => {
+	Article.find()
+		.sort({ date: 'ascending' })
+		.then((material) => {
+			console.log(material);
+			res.json({ material });
+		})
+		.catch((error) => {
+			next(error);
+		});
 });
 
 router.get('/getMaterial', (req, res, next) => {

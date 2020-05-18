@@ -13,6 +13,7 @@ import { signUp } from '../../Services/authentication';
 import { StudentsList } from './../../Services/otherServices';
 //Images
 import Edit from '../../asset/images/editar.png';
+import Plus from '../../asset/images/plus.png';
 
 class index extends Component {
 	constructor(props) {
@@ -83,8 +84,13 @@ class index extends Component {
 		return (
 			<div className="Students__List">
 				<div className="head">
-					<h3>Lista de Alunos</h3>
-					<button onClick={this.newStudentTab}>Adicionar novo aluno</button>
+					<button onClick={this.newStudentTab}>
+						<img
+							src={Plus}
+							alt="Adicionar novo aluno"
+							style={{ width: '50px', height: '50px' }}
+						/>
+					</button>
 				</div>
 				{this.state.addStudent && (
 					<NewStudent

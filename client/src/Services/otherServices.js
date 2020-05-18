@@ -53,6 +53,18 @@ const updateMaterial = async (data) => {
 };
 export { updateMaterial };
 
+const createArticle = async (data) => {
+	try {
+		console.log('other services', data);
+		const result = await instance.post('/createArticle', { data });
+		const posts = result.data.result;
+		return posts;
+	} catch (error) {
+		throw error;
+	}
+};
+export { createArticle };
+
 const updateNotes = async (id) => {
 	try {
 		console.log('other services post', id);
@@ -76,6 +88,18 @@ const getTests = async (date) => {
 	}
 };
 export { getTests };
+
+const getArticles = async (date) => {
+	try {
+		const result = await instance.get('/getArticles');
+		console.log('other servixes', result);
+		const getArticles = result.data.material;
+		return getArticles;
+	} catch (error) {
+		throw error;
+	}
+};
+export { getArticles };
 
 const newAnnouncement = async (data) => {
 	try {

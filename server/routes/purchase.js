@@ -9,7 +9,6 @@ const stripe = require('./../stripe-configure');
 const Purchase = require('./../models/purchase');
 const Product = require('./../models/product');
 const PaymentMethod = require('./../models/payment-method');
-const Cart = require('./../models/cart');
 
 router.get('/list', async (req, res, next) => {
 	try {

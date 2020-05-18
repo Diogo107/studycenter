@@ -52,7 +52,7 @@ class index extends Component {
 
 	render() {
 		return (
-			<div className="Students__List">
+			<div className="Tests__List">
 				<div className="head">
 					<h3>Lista de Testes</h3>
 				</div>

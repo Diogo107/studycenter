@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './style.scss';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { createArticle, getArticles } from '../../Services/otherServices';
+//Services
+import moment from 'moment';
 
 class index extends Component {
 	constructor(props) {
@@ -8,9 +11,16 @@ class index extends Component {
 		this.state = {};
 	}
 
+	async componentDidMount() {
+		let list = await getArticles();
+		console.log('articles', list);
+		this.setState({ list });
+	}
+
 	submitForm = async (event) => {
 		event.preventDefault();
-		let article = this.state;
+		let { title, content } = this.state;
+		await createArticle({ title, content });
 		console.log('submit', this.state);
 	};
 
@@ -40,6 +50,14 @@ class index extends Component {
 					/>
 					<Button>Guardar</Button>
 				</Form>
+				{this.state.list &&
+					this.state.list.map((single) => (
+						<div className="Single__Article">
+							<h3>{single.title}</h3>
+							<p>{single.content}</p>
+							<p id="date">{moment(single.date).format('DD [/] MM [/] Y')}</p>
+						</div>
+					))}
 			</div>
 		);
 	}

@@ -2,4 +2,25 @@
 	width: 100%;
 	min-height: 90vh;
 	background-color: white;
+	form {
+		margin-bottom: 3em;
+	}
+	.Single__Article {
+		border-bottom: 1px solid lightgrey;
+		width: 80%;
+		margin: auto auto 2em auto;
+	}
+	h3 {
+		letter-spacing: 5px;
+	}
+	p {
+		text-align: justify;
+		margin: 1em auto;
+		white-space: pre-line;
+	}
+	#date {
+		text-align: right;
+		font-size: small;
+		font-style: italic;
+	}
 }
