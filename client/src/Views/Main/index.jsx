@@ -16,6 +16,7 @@ import Questions from '../Questions';
 import SingleStudent from '../SingleStudent';
 import EditContent from '../EditContent';
 import Articles from '../Articles';
+import DailyChallenge from '../DailyChallenge';
 //Routes
 import { BrowserRouter, Switch, Route, Redirect, Link } from 'react-router-dom';
 
@@ -51,6 +52,10 @@ class index extends Component {
 				<Route
 					path="/dashboard/subjects"
 					render={(props) => <Abstracts {...props} />}
+				/>
+				<Route
+					path="/dashboard/daily-challenge"
+					render={(props) => <DailyChallenge {...props} />}
 				/>
 				<Route
 					path="/dashboard/articles"

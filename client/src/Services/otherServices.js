@@ -131,6 +131,23 @@ const getMaterial = async () => {
 };
 export { getMaterial };
 
+const uploadDailyChallenge = async (data) => {
+	console.log('other services', data);
+	try {
+		const result = await instance.post('/uploadDailyChallenge', data);
+		return result;
+	} catch (error) {
+		console.log(error);
+	}
+};
+export { uploadDailyChallenge };
+
+const getDailyChallenge = async () => {
+	const result = await instance.get('/getDailyChallenge');
+	return result.data.material;
+};
+export { getDailyChallenge };
+
 const getAnnouncement = async (date) => {
 	try {
 		const result = await instance.get('/getAnnouncement');

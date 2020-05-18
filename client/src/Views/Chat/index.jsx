@@ -8,8 +8,19 @@ import TestsList from '../../Components/TestsList';
 import Announcements from '../../Components/Announcements';
 //Images
 import Avatar from './../../asset/images/avatar.png';
+import { StudentsList } from '../../Services/otherServices';
 
 class index extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {};
+	}
+
+	async componentDidMount() {
+		let listOfPeople = await StudentsList();
+		console.log('list of people', listOfPeople);
+	}
+
 	render() {
 		return (
 			<div className="Chat">

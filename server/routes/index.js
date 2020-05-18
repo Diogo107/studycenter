@@ -8,6 +8,7 @@ const User = require('./../models/user');
 const Material = require('./../models/material');
 const Announcements = require('../models/announcements');
 const Article = require('../models/article');
+const DailyChallenge = require('../models/dailyChallenge');
 const multer = require('multer');
 const upload = multer({ dest: 'uploadedFiles/' });
 const uploader = require('./../multer-configure.js');
@@ -158,6 +159,30 @@ router.post('/createArticle', async (req, res, next) => {
 router.get('/getArticles', (req, res, next) => {
 	Article.find()
 		.sort({ date: 'descending' })
+		.then((material) => {
+			console.log(material);
+			res.json({ material });
+		})
+		.catch((error) => {
+			next(error);
+		});
+});
+
+router.post('/uploadDailyChallenge', async (req, res, next) => {
+	const { title, content } = req.body;
+	console.log('req.body', { title, content });
+	try {
+		const result = await DailyChallenge.create({ title, content });
+		res.json({ result });
+	} catch (error) {
+		console.log(error);
+	}
+});
+
+router.get('/getDailyChallenge', (req, res, next) => {
+	DailyChallenge.find()
+		.sort({ date: 'descending' })
+		.limit(1)
 		.then((material) => {
 			console.log(material);
 			res.json({ material });
