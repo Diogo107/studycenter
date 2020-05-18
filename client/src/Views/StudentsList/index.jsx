@@ -179,11 +179,16 @@ class index extends Component {
 						{this.state.filteredList &&
 							this.state.filteredList.map((single) => (
 								<tr>
-									{this.state.seeAll && (
+									{(this.state.seeAll && single.active && (
 										<th>
 											<div className="Green__Ball" alt="Activo"></div>
 										</th>
-									)}
+									)) ||
+										(this.state.seeAll && (
+											<th>
+												<div className="Red__Ball" alt="Activo"></div>
+											</th>
+										))}
 									<th>{single.name}</th>
 									<td>{single.year}º</td>
 									<td>{single.behaviour}</td>

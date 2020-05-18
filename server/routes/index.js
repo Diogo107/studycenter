@@ -93,9 +93,19 @@ router.post('/uploadMaterial', async (req, res, next) => {
 });
 
 router.post('/updateStudent', async (req, res, next) => {
-	const { id, name, email, year, behaviour, achievement } = req.body.data;
+	console.log('req.body', req.body);
+	const {
+		id,
+		active,
+		name,
+		email,
+		year,
+		behaviour,
+		achievement,
+	} = req.body.data;
 	console.log({
 		id,
+		active,
 		name,
 		email,
 		year,
@@ -105,6 +115,7 @@ router.post('/updateStudent', async (req, res, next) => {
 	try {
 		const result = await User.findByIdAndUpdate(id, {
 			name,
+			active,
 			email,
 			year,
 			behaviour,
@@ -210,6 +221,7 @@ router.post('/updateProfile', (req, res, next) => {
 	console.log('in the server right now', req.body);
 	const {
 		id,
+		status,
 		name,
 		email,
 		admin,
@@ -225,6 +237,7 @@ router.post('/updateProfile', (req, res, next) => {
 	} = req.body;
 	console.log('this is id', {
 		id,
+		status,
 		name,
 		email,
 		admin,

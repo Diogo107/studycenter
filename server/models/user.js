@@ -38,6 +38,16 @@ const schema = new mongoose.Schema({
 		type: Number,
 		default: 5,
 	},
+	role: {
+		type: String,
+		require,
+		default: 'Aluno',
+	},
+	active: {
+		type: Boolean,
+		require,
+		default: true,
+	},
 	notes: [
 		{
 			id: Number,
