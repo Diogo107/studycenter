@@ -146,7 +146,7 @@ router.post('/createArticle', async (req, res, next) => {
 
 router.get('/getArticles', (req, res, next) => {
 	Article.find()
-		.sort({ date: 'ascending' })
+		.sort({ date: 'descending' })
 		.then((material) => {
 			console.log(material);
 			res.json({ material });
