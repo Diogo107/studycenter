@@ -80,7 +80,7 @@ class index extends Component {
 		return (
 			<div className="Dictionary">
 				<h3>Minhas Notas</h3>
-				<Form onSubmit={this.addNote}>
+				<Form onSubmit={this.addNote} id="Annotation__Form">
 					<Input
 						type="textarea"
 						name="text"
@@ -101,7 +101,7 @@ class index extends Component {
 						onChange={this.handleInputChange}
 					/>
 				</InputGroup>
-				<section>
+				<section id="Posts__Section">
 					{this.state.filteredNotes &&
 						this.state.filteredNotes.map((single) => (
 							<div class="post-it">

@@ -10,7 +10,7 @@ import Academic from './../../asset/images/contactos/academic.png';
 import Key from './../../asset/images/padlock.png';
 //Services
 import Context from '../../Store/context';
-import { updateStudent } from '../../Services/otherServices';
+import { updatePassword } from '../../Services/otherServices';
 
 class index extends Component {
 	constructor(props) {
@@ -39,16 +39,9 @@ class index extends Component {
 		event.preventDefault();
 		let passwordHash = this.state.passwordHash;
 		let id = this.props.user._id;
-		let { active, name, email, year, behaviour, achievement } = this.props.user;
-		await updateStudent({
+		await updatePassword({
 			passwordHash,
 			id,
-			active,
-			name,
-			email,
-			year,
-			behaviour,
-			achievement,
 		});
 		console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
 		this.setState({ edit: false, saved: true });

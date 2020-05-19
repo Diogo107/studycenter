@@ -16,9 +16,18 @@ class index extends Component {
 		const list = await StudentsList();
 		const id = this.props.match.params.id;
 		const student = list.filter((single) => single._id == id);
-		const { active, name, email, year, behaviour, achievement } = student[0];
+		const {
+			passwordHash,
+			active,
+			name,
+			email,
+			year,
+			behaviour,
+			achievement,
+		} = student[0];
 		this.setState({
 			id,
+			passwordHash,
 			active,
 			name,
 			email,
@@ -33,7 +42,14 @@ class index extends Component {
 		const data = this.state;
 		let { active, name, email, year, behaviour, achievement } = this.state;
 		const final = await updateStudent(data);
-		this.setState({ active, name, email, year, behaviour, achievement });
+		this.setState({
+			active,
+			name,
+			email,
+			year,
+			behaviour,
+			achievement,
+		});
 		this.props.history.push('/dashboard/students-list');
 	};
 

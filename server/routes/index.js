@@ -142,7 +142,6 @@ router.post('/updateStudent', async (req, res, next) => {
 	console.log('req.body', req.body);
 	const {
 		id,
-		passwordHash,
 		active,
 		name,
 		email,
@@ -150,11 +149,8 @@ router.post('/updateStudent', async (req, res, next) => {
 		behaviour,
 		achievement,
 	} = req.body.data;
-	let hash = await bcryptjs.hash(passwordHash, 10);
 	console.log({
 		id,
-		passwordHash: hash,
-		hash,
 		active,
 		name,
 		email,
@@ -164,13 +160,30 @@ router.post('/updateStudent', async (req, res, next) => {
 	});
 	try {
 		const result = await User.findByIdAndUpdate(id, {
-			passwordHash: hash,
 			name,
 			active,
 			email,
 			year,
 			behaviour,
 			achievement,
+		});
+		res.json({ result });
+	} catch (error) {
+		console.log(error);
+	}
+});
+
+router.post('/updatePassword', async (req, res, next) => {
+	console.log('req.body', req.body);
+	const { id, passwordHash } = req.body.data;
+	const hash = await bcryptjs.hash(passwordHash, 10);
+	console.log({
+		id,
+		hash,
+	});
+	try {
+		const result = await User.findByIdAndUpdate(id, {
+			passwordHash: hash,
 		});
 		res.json({ result });
 	} catch (error) {
