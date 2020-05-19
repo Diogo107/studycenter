@@ -29,4 +29,7 @@
 	&:last-child {
 		padding-right: 20px;
 	}
+	img {
+		filter: invert(1);
+	}
 }

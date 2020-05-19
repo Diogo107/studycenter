@@ -38,9 +38,12 @@ class index extends Component {
 
 	async componentDidMount() {
 		let list = await StudentsList();
+		let filteredList = list.filter((single) => {
+			return single.active;
+		});
 		this.setState({
 			list: list,
-			filteredList: list,
+			filteredList,
 		});
 	}
 

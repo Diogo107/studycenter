@@ -86,6 +86,7 @@ class index extends Component {
 											<InputGroup>
 												<Label>Nova Password</Label>
 												<Input
+													required
 													name="passwordHash"
 													onChange={this.handleInputChange}
 												/>
