@@ -101,7 +101,7 @@ export default class index extends Component {
 						<Link to="/dashboard/overview">
 							<img className="logo" id="Logo__Large" src={logo} />
 						</Link>
-						<Navbar.Brand className="navuser__path" href="/">
+						<Navbar.Brand className="navuser__path" href="">
 							{this.changeInput(this.props.history.location.pathname)}
 						</Navbar.Brand>
 						<div className=" links">
