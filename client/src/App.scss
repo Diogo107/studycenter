@@ -102,6 +102,22 @@
 	#Posts__Section {
 		grid-template-columns: auto;
 	}
+	.Table__hide {
+		display: none;
+	}
+	.Summary__View {
+		padding: 2em 1em !important;
+	}
+	.Single__Student form > div {
+		flex-direction: column;
+	}
+	.footer {
+		display: flex;
+		flex-direction: column !important;
+	}
+	.navbar {
+		flex-wrap: nowrap !important;
+	}
 }
 
 .Margin__Top__For__Navbar {

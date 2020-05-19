@@ -136,8 +136,8 @@ class index extends Component {
 							{this.state.seeAll && <th style={{ width: '25px' }}>Estado</th>}
 							<th>Nome</th>
 							<th>Ano</th>
-							<th>Comportamento</th>
-							<th>Aproveitamento</th>
+							<th className="Table__hide">Comportamento</th>
+							<th className="Table__hide">Aproveitamento</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -159,7 +159,7 @@ class index extends Component {
 									placeholder="Filtrar Ano..."
 								/>
 							</td>
-							<td>
+							<td className="Table__hide">
 								{' '}
 								<Input
 									name="behaviour"
@@ -167,7 +167,7 @@ class index extends Component {
 									placeholder="Filtrar Comportamento..."
 								/>
 							</td>
-							<td>
+							<td className="Table__hide">
 								{' '}
 								<Input
 									name="achievement"
@@ -191,8 +191,8 @@ class index extends Component {
 										))}
 									<th>{single.name}</th>
 									<td>{single.year}º</td>
-									<td>{single.behaviour}</td>
-									<td>{single.achievement}</td>
+									<td className="Table__hide">{single.behaviour}</td>
+									<td className="Table__hide">{single.achievement}</td>
 									<td>
 										<Link to={'/dashboard/student/' + single._id}>
 											<img

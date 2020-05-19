@@ -76,10 +76,11 @@ class index extends Component {
 						<Input name="Theme" onChange={this.handleInputChange} />
 					</InputGroup>
 				</section>
+
 				<Table hover>
 					<thead>
 						<tr>
-							<th>Disciplina</th>
+							<th className="Table__hide">Disciplina</th>
 							<th>Tema</th>
 							<th>Resumos</th>
 							<th>Questões</th>
@@ -89,7 +90,9 @@ class index extends Component {
 						{this.state.filteredMaterial &&
 							this.state.filteredMaterial.map((single) => (
 								<tr>
-									<th scope="row">{single.Subject}</th>
+									<th scope="row" className="Table__hide">
+										{single.Subject}
+									</th>
 									<td>{single.Theme}</td>
 									{single.Sumary && (
 										<td>
@@ -105,7 +108,7 @@ class index extends Component {
 											</Link>
 										</td>
 									)) || <td></td>}
-									<td>
+									<td className="Table__hide">
 										<Link to={'/dashboard/edirContent/' + single._id}>
 											<img
 												className="scope"

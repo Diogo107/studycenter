@@ -7,10 +7,10 @@ import headerAt from './../../asset/images/headerAt.png';
 export default function Footer() {
 	return (
 		<Navbar className="footer" bg="light" expand="lg">
-			<Link to="/dashboard/FAQ">
+			<Link to="/dashboard/FAQ" className="Table__hide">
 				<Nav>FAQ</Nav>
 			</Link>
-			<Link to="/contactos">
+			<Link to="/contactos" className="Table__hide">
 				<Nav>
 					<img src={headerAt} alt="" width="50px" height="50px" /> Contactos
 				</Nav>
