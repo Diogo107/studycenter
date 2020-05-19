@@ -7,28 +7,36 @@ class index extends Component {
 			<div className="FAQ">
 				<h1>Perguntas Frequentes</h1>
 				<div class="clicker" tabindex="1">
-					<h4>Como funciona os pagamentos</h4>
+					<h4>Até que dia posso pagar a mensalidade?</h4>
 				</div>
 				<div class="hiddendiv">
-					<p>Por referência bancária</p>
+					<p>As mensalidades poderão ser pagas até dia 8 de cada mês.</p>
 				</div>
 				<div class="clicker" tabindex="1">
-					<h4>E as entregas?</h4>
+					<h4>Qual o horário do centro de estudos?</h4>
 				</div>
 				<div class="hiddendiv">
-					<p>Podem recolher no armazém ou vamos entregar à porta.</p>
+					<p>O horário do centro de estudos é das 9h às 19h30.</p>
 				</div>
 				<div class="clicker" tabindex="1">
-					<h4>Em quanto tempo acontecem as entregas?</h4>
+					<h4>O centro de estudos está aberto nos feriados?</h4>
 				</div>
 				<div class="hiddendiv">
-					<p>Podem recolher no armazém ou vamos entregar à porta.</p>
+					<p>
+						Não. O centro de estudos fecha aos fins de semana, nos feriados
+						nacionais e no feriado do Barreiro.
+					</p>
 				</div>
 				<div class="clicker" tabindex="1">
-					<h4>De que forma poderei contactar em caso de dúvidas?</h4>
+					<h4>O centro de estudos dispõe de serviço de carrinha?</h4>
 				</div>
 				<div class="hiddendiv">
-					<p>Podem recolher no armazém ou vamos entregar à porta.</p>
+					<p>
+						Sim, no entanto, está sujeito a disponibilidade.
+						<br />O Serviço de carrinha faz serviço de transporte entre a
+						escola, casa e o centro de estudos. O serviço de carrinha é
+						oferecido nas voltas que não abranjam levar ou ir buscar a casa.
+					</p>
 				</div>
 			</div>
 		);

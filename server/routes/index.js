@@ -13,6 +13,7 @@ const Chat = require('../models/chat');
 const multer = require('multer');
 const upload = multer({ dest: 'uploadedFiles/' });
 const uploader = require('./../multer-configure.js');
+const bcryptjs = require('bcryptjs');
 
 router.get('/', (req, res, next) => {
 	res.json({ type: 'success', data: { title: 'Hello World' } });
@@ -129,7 +130,7 @@ router.post('/sendMessage', async (req, res, next) => {
 router.get('/getMessages', (req, res, next) => {
 	Chat.find()
 		.then((tests) => {
-			console.log('testes', tests)
+			console.log('testes', tests);
 			res.json({ tests });
 		})
 		.catch((error) => {
@@ -141,6 +142,7 @@ router.post('/updateStudent', async (req, res, next) => {
 	console.log('req.body', req.body);
 	const {
 		id,
+		passwordHash,
 		active,
 		name,
 		email,
@@ -148,8 +150,11 @@ router.post('/updateStudent', async (req, res, next) => {
 		behaviour,
 		achievement,
 	} = req.body.data;
+	let hash = await bcryptjs.hash(passwordHash, 10);
 	console.log({
 		id,
+		passwordHash: hash,
+		hash,
 		active,
 		name,
 		email,
@@ -159,6 +164,7 @@ router.post('/updateStudent', async (req, res, next) => {
 	});
 	try {
 		const result = await User.findByIdAndUpdate(id, {
+			passwordHash: hash,
 			name,
 			active,
 			email,

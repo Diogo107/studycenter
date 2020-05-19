@@ -26,6 +26,10 @@
 			flex-direction: column;
 			justify-content: space-evenly;
 			margin: auto 4em;
+			#padlock {
+				border: none;
+				background-color: transparent;
+			}
 			> div {
 				display: flex;
 				align-content: center;
@@ -45,5 +49,11 @@
 	.Profile__Right {
 		width: 100%;
 		border: 1px solid black;
+	}
+	.input-group {
+		display: flex;
+		flex-direction: column;
+		text-align: start;
+		margin-left: 1em;
 	}
 }
