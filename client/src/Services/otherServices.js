@@ -127,6 +127,18 @@ const sendMessage = async (data) => {
 };
 export { sendMessage };
 
+const getMessages = async (date) => {
+	try {
+		const result = await instance.get('/getMessages');
+		console.log('other servixes', result);
+		const getMessages = result.data.tests;
+		return getMessages;
+	} catch (error) {
+		throw error;
+	}
+};
+export { getMessages };
+
 const uploadMaterial = async (data) => {
 	console.log('other services', data);
 	try {

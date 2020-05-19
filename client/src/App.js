@@ -32,7 +32,7 @@ class App extends Component {
 		});
 		setInterval(() => {
 			this.checkUpdatedUser();
-		}, 5000);
+		}, 50000);
 	}
 
 	checkUpdatedUser = async () => {

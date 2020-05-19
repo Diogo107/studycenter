@@ -6,7 +6,7 @@ const schema = new mongoose.Schema({
 	content: [
 		{
 			userId: String,
-			userName: String,
+			name: String,
 			message: String,
 			date: {
 				type: Date,

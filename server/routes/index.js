@@ -103,21 +103,38 @@ router.post('/sendMessage', async (req, res, next) => {
 		},
 		users: [myId, otherId],
 	};
-	let conversationId;
 	console.log('req.body', data);
 	try {
 		const list = await Chat.find();
-		await list.map((single) => {
-			if (single.users.includes(myId) && single.users.includes(otherId)) {
-				conversationId = single._id;
-			}
+		let exists = await list.filter((single) => {
+			return single.users.includes(myId) && single.users.includes(otherId);
 		});
+		if (exists.length == 1) {
+			content = [data.content, ...exists[0].content];
+			let conversationId = exists[0]._id;
+			let result = await Chat.findByIdAndUpdate(conversationId, {
+				$push: { content: data.content },
+			});
+			console.log('result', result);
+		} else {
+			Chat.create(data);
+		}
 
-		console.log('rconversation Id', conversationId);
 		res.json({});
 	} catch (error) {
 		console.log(error);
 	}
+});
+
+router.get('/getMessages', (req, res, next) => {
+	Chat.find()
+		.then((tests) => {
+			console.log('testes', tests)
+			res.json({ tests });
+		})
+		.catch((error) => {
+			next(error);
+		});
 });
 
 router.post('/updateStudent', async (req, res, next) => {

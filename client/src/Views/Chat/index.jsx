@@ -11,7 +11,7 @@ import Avatar from './../../asset/images/avatar.png';
 import { StudentsList } from '../../Services/otherServices';
 //Services
 import { Link } from 'react-router-dom';
-import { sendMessage } from '../../Services/otherServices';
+import { sendMessage, getMessages } from '../../Services/otherServices';
 
 class index extends Component {
 	constructor(props) {
@@ -27,6 +27,9 @@ class index extends Component {
 		});
 		console.log('list of people', listOfPeople);
 		this.setState({ listOfPeople });
+		setInterval(() => {
+			this.messagesUpdated();
+		}, 5000);
 	}
 
 	handleInputChange = async (event) => {
@@ -38,15 +41,36 @@ class index extends Component {
 		console.log(this.state);
 	};
 
+	messagesUpdated = async () => {
+		let updatedList = await getMessages();
+		let otherId = this.props.match.params.id;
+		let myId = this.props.user._id;
+		console.log('this state', otherId, myId);
+		let selectedConversation;
+		if (updatedList !== this.state.updatedList) {
+			selectedConversation = updatedList.filter((single) => {
+				return single.users.includes(otherId) && single.users.includes(otherId);
+			});
+			console.log('updatedList', selectedConversation);
+			this.setState({
+				updatedList,
+				selectedConversation,
+			});
+		}
+	};
+
 	sendMessage = async (event) => {
 		event.preventDefault();
 		let otherId = this.props.match.params.id;
 		let myId = this.props.user._id;
 		let name = this.props.user.name;
 		let content = this.state.message;
-		console.log(content);
-		let message = sendMessage({ content, myId, otherId, name });
-		console.log('this is the submit', this.state, otherId, myId, name);
+		if (otherId !== undefined) {
+			let message = sendMessage({ content, myId, otherId, name });
+			this.setState({
+				message: '',
+			});
+		}
 	};
 
 	render() {
@@ -63,60 +87,34 @@ class index extends Component {
 								</div>
 							</Link>
 						))}
-					<div className="Person__Avatar">
-						<img src={Avatar} alt="avatar" />
-						<h5>Lorem Name</h5>
-					</div>
-					<div className="Person__Avatar">
-						<img src={Avatar} alt="avatar" />
-						<h5>Lorem Name</h5>
-					</div>
-					<div className="Person__Avatar">
-						<img src={Avatar} alt="avatar" />
-						<h5>Lorem Name</h5>
-					</div>
-					<div className="Person__Avatar">
-						<img src={Avatar} alt="avatar" />
-						<h5>Lorem Name</h5>
-					</div>
-					<div className="Person__Avatar">
-						<img src={Avatar} alt="avatar" />
-						<h5>Lorem Name</h5>
-					</div>
-					<div className="Person__Avatar">
-						<img src={Avatar} alt="avatar" />
-						<h5>Lorem Name</h5>
-					</div>
-					<div className="Person__Avatar">
-						<img src={Avatar} alt="avatar" />
-						<h5>Lorem Name</h5>
-					</div>
-					<div className="Person__Avatar">
-						<img src={Avatar} alt="avatar" />
-						<h5>Lorem Name</h5>
-					</div>
-					<div className="Person__Avatar">
-						<img src={Avatar} alt="avatar" />
-						<h5>Lorem Name</h5>
-					</div>
-					<div className="Person__Avatar">
-						<img src={Avatar} alt="avatar" />
-						<h5>Lorem Name</h5>
-					</div>
 				</div>
 				<div className="Direct__Messages">
 					<div className="Text__Exchange__Field">
-						<div className="Text__Block">
-							<img src={Avatar} />
-							<p className="Message">
-								This is a sample of text that I had here to display.
-							</p>
-						</div>
+						{this.state.selectedConversation &&
+							this.state.selectedConversation[0].content.map((single) => (
+								<>
+									{(single.name == this.props.user.name && (
+										<div
+											className="Text__Block"
+											style={{ flexDirection: 'row-reverse' }}
+										>
+											<img src={Avatar} />
+											<p className="Message">{single.message}</p>
+										</div>
+									)) || (
+										<div className="Text__Block">
+											<img src={Avatar} />
+											<p className="Message">{single.message}</p>
+										</div>
+									)}
+								</>
+							))}
 					</div>
 					<div className="Text__Input__Field">
 						<Form onSubmit={this.sendMessage}>
 							<Input
 								type="text"
+								value={this.state.message}
 								name="message"
 								id="exampleText"
 								onChange={this.handleInputChange}
