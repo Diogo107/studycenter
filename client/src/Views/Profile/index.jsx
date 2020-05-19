@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useContext } from 'react';
 import './style.scss';
 import { Input, Button } from 'reactstrap';
 //Images
@@ -6,12 +6,14 @@ import Edit from './../../asset/images/editar.png';
 import Id from './../../asset/images/contactos/id.png';
 import Mail from './../../asset/images/contactos/mail.png';
 import Academic from './../../asset/images/contactos/academic.png';
+//Services
+import Context from '../../Store/context';
 
 class index extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			edit: true,
+			edit: false,
 		};
 	}
 	componentDidMount() {
