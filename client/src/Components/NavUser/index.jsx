@@ -38,6 +38,10 @@ export default class index extends Component {
 	showSidebar() {
 		let elements = document.getElementsByClassName('sidebar');
 		let sidebar = document.getElementById('sidebar');
+		let main = document.getElementById('main');
+		main.style.opacity == '0.6'
+			? (main.style.opacity = '1')
+			: (main.style.opacity = '0.6');
 		console.log(sidebar);
 		sidebar.style.display == 'flex'
 			? (sidebar.style.display = 'none')

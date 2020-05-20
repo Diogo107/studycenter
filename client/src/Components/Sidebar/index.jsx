@@ -35,10 +35,12 @@ export default class index extends Component {
 				id="sidebar"
 				onClick={() => {
 					let sidebar = document.getElementById('sidebar');
+					let main = document.getElementById('main');
 					console.log(sidebar);
 					sidebar.style.display == 'flex'
 						? (sidebar.style.display = 'none')
 						: (sidebar.style.display = 'flex');
+					main.style.opacity = '1';
 				}}
 			>
 				<div className="sidebar__item">
