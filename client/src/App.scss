@@ -34,13 +34,14 @@
 .sidebar__APP {
 	width: 15%;
 	min-width: 280px;
+	z-index: 5;
 }
 
 .main {
 	min-height: 80vh;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 768px) {
 	.Main {
 		margin-left: 0 !important;
 	}

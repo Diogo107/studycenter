@@ -40,6 +40,7 @@ export default class index extends Component {
 					<div className="ml-auto links">
 						<Link to="/signin" className="nav__link">
 							<img
+								id="login"
 								src={On}
 								alt="login"
 								style={{ width: '20px', height: '20px', marginRight: '10px' }}

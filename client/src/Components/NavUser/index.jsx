@@ -100,7 +100,10 @@ export default class index extends Component {
 				{(this.state.user && (
 					<Navbar className="Navbar__User fixed" bg="transparent" expand="lg">
 						<button onClick={this.showSidebar}>
-							<img className="logo" src={menu} />
+							<img
+								className="logo"
+								src="https://image.flaticon.com/icons/svg/2948/2948037.svg"
+							/>
 						</button>
 						<Navbar.Brand className="navuser__path" href="">
 							{this.changeInput(this.props.history.location.pathname)}
