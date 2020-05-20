@@ -29,7 +29,7 @@ class index extends Component {
 		this.setState({ listOfPeople });
 		setInterval(() => {
 			this.messagesUpdated();
-		}, 5000);
+		}, 500000);
 	}
 
 	handleInputChange = async (event) => {

@@ -75,19 +75,19 @@ class App extends Component {
 					/>
 					{this.state.user && (
 						<>
-							<div className="sidebar">
-								<Route
-									path="/dashboard/"
-									render={(props) => (
-										<Sidebar
-											user={this.state.user}
-											updateUserInformation={this.updateUserInformation}
-											{...props}
-										/>
-									)}
-								/>
-							</div>
 							<div className="main">
+								<div className="sidebar__APP">
+									<Route
+										path="/dashboard/"
+										render={(props) => (
+											<Sidebar
+												user={this.state.user}
+												updateUserInformation={this.updateUserInformation}
+												{...props}
+											/>
+										)}
+									/>
+								</div>
 								<Route
 									path="/dashboard/"
 									render={(props) => (

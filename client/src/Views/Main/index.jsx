@@ -23,7 +23,7 @@ import { BrowserRouter, Switch, Route, Redirect, Link } from 'react-router-dom';
 class index extends Component {
 	render() {
 		return (
-			<div className="Main Margin__Top__For__Navbar">
+			<div className="Main Margin__Top__For__Navbar" id="main">
 				<Route
 					path="/dashboard/sumary/:id"
 					render={(props) => <Sumary {...props} />}

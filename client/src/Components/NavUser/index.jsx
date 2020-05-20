@@ -37,13 +37,17 @@ export default class index extends Component {
 	}
 	showSidebar() {
 		let elements = document.getElementsByClassName('sidebar');
-		console.log(elements);
-		for (let i = 0; i < elements.length; i++) {
+		let sidebar = document.getElementById('sidebar');
+		console.log(sidebar);
+		sidebar.style.display == 'flex'
+			? (sidebar.style.display = 'none')
+			: (sidebar.style.display = 'flex');
+		/* for (let i = 0; i < elements.length; i++) {
 			elements[i].style.display == 'none'
-				? (elements[i].style.display = 'block')
+				? (elements[i].style.display = 'flex')
 				: (elements[i].style.display = 'none');
-		}
-		console.log('hello', elements);
+		} */
+		console.log('hello', sidebar);
 	}
 
 	changeInput(path) {
@@ -95,12 +99,9 @@ export default class index extends Component {
 			<>
 				{(this.state.user && (
 					<Navbar className="Navbar__User fixed" bg="transparent" expand="lg">
-						<button id="Logo__Small" onClick={this.showSidebar}>
+						<button onClick={this.showSidebar}>
 							<img className="logo" src={menu} />
 						</button>
-						<Link to="/dashboard/overview">
-							<img className="logo" id="Logo__Large" src={logo} />
-						</Link>
 						<Navbar.Brand className="navuser__path" href="">
 							{this.changeInput(this.props.history.location.pathname)}
 						</Navbar.Brand>

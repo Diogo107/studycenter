@@ -30,7 +30,17 @@ export default class index extends Component {
 
 	render() {
 		return (
-			<div className="sidebar">
+			<div
+				className="sidebar"
+				id="sidebar"
+				onClick={() => {
+					let sidebar = document.getElementById('sidebar');
+					console.log(sidebar);
+					sidebar.style.display == 'flex'
+						? (sidebar.style.display = 'none')
+						: (sidebar.style.display = 'flex');
+				}}
+			>
 				<div className="sidebar__item">
 					<Link to="/dashboard/overview">Geral</Link>
 				</div>
