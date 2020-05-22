@@ -5,6 +5,16 @@ import './style.scss';
 function index(props) {
 	return (
 		<div className="Nursery__Section">
+			{/* <div>
+				<div className="Single__Person">
+					<img src="https://www.ventos-traquinas.pt/index/images/equipa/Marta.png" />
+					<h5>Adelaide</h5>
+				</div>
+				<div>
+					<img src="https://www.ventos-traquinas.pt/index/images/equipa/Marta.png" />
+					<h5>Adelaide</h5>
+				</div>
+			</div> */}
 			<Carousel>
 				<Carousel.Item>
 					<img

@@ -6,65 +6,114 @@ import Nursery from './../../Components/LandingPage/Nursery';
 function index(props) {
 	window.addEventListener('scroll', (event) => {
 		// important to know yposition of page => window.scrollY;
-		let nurserySectionY = document.getElementsByClassName('Nursery');
-		let ladybugSectionY = document.getElementsByClassName('Ladybug');
-		console.log('nursery', nurserySectionY[0].getBoundingClientRect().top);
+		let bottom = Math.round(window.innerHeight / 3);
+		let top = 70 - window.innerHeight / 3;
+		let width = '80px';
+		let height = '80px';
+		console.log(
+			top,
+			Math.round(
+				document.getElementsByClassName('Nursery')[0].getBoundingClientRect()
+					.top
+			),
+			bottom
+		);
 		if (
-			nurserySectionY[0].getBoundingClientRect().top > 0 &&
-			nurserySectionY[0].getBoundingClientRect().top < 600
+			document.getElementsByClassName('Nursery')[0].getBoundingClientRect()
+				.top > top &&
+			document.getElementsByClassName('Nursery')[0].getBoundingClientRect()
+				.top < bottom
 		) {
-			document.getElementById('Management__Team').style.display = 'block';
+			let temp = document.getElementsByClassName('Nursery__Team');
+			for (let i = 0; i < temp.length; i++) {
+				temp[i].style.width = width;
+				temp[i].style.height = height;
+			}
 		} else {
-			document.getElementById('Management__Team').style.display = 'none';
+			let temp = document.getElementsByClassName('Nursery__Team');
+			for (let i = 0; i < temp.length; i++) {
+				temp[i].style.width = '30px';
+				temp[i].style.height = '30px';
+			}
 		}
-		/* if (
-			ladybugSectionY[0].getBoundingClientRect().top > 0 &&
-			ladybugSectionY[0].getBoundingClientRect().top < 600
+		if (
+			document.getElementsByClassName('Ladybug')[0].getBoundingClientRect()
+				.top > top &&
+			document.getElementsByClassName('Ladybug')[0].getBoundingClientRect()
+				.top < bottom
 		) {
-			document.getElementById('Nursery__Team').style.display = 'block';
+			let temp = document.getElementsByClassName('Management__Team');
+			for (let i = 0; i < temp.length; i++) {
+				temp[i].style.width = width;
+				temp[i].style.height = height;
+			}
 		} else {
-			document.getElementById('Nursery__Team').style.display = 'none';
-		} */
-
-		/* let scroll = event;
-		var rect = document.body.getBoundingClientRect();
-		let hello = document.getElementsByClassName('Landing__Page');
-		if (nurserySectionY[0].getBoundingClientRect().top < 200) {
-			hello[0].style.backgroundColor = 'red';
-		} else {
-			hello[0].style.backgroundColor = 'white';
-		} */
+			let temp = document.getElementsByClassName('Management__Team');
+			for (let i = 0; i < temp.length; i++) {
+				temp[i].style.width = '30px';
+				temp[i].style.height = '30px';
+			}
+		}
 	});
 	return (
 		<div className="Landing__Page">
 			<div className="People__Left">
-				<div id="Management__Team">
-					<img src="https://www.ventos-traquinas.pt/index/images/equipa/Denise-1.png" />
-					<img src="https://www.ventos-traquinas.pt/index/images/equipa/Sa%CC%83o-2.png" />
-					<img src="https://www.ventos-traquinas.pt/index/images/equipa/Marta.png" />
-				</div>
-				{/* <div className="Nursery__Team">
-					<img src="https://www.ventos-traquinas.pt/index/images/equipa/Denise-1.png" />
-					<img src="https://www.ventos-traquinas.pt/index/images/equipa/Sa%CC%83o-2.png" />
-				</div>
-				<div className="Ladybug__Team">
-					<img src="https://www.ventos-traquinas.pt/index/images/equipa/Denise-1.png" />
-					<img src="https://www.ventos-traquinas.pt/index/images/equipa/Sa%CC%83o-2.png" />
-				</div>
-				<div className="Dolphins__Team">
-					<img src="https://www.ventos-traquinas.pt/index/images/equipa/Denise-1.png" />
-					<img src="https://www.ventos-traquinas.pt/index/images/equipa/Sa%CC%83o-2.png" />
-				</div> */}
+				<img
+					src="https://www.ventos-traquinas.pt/index/images/equipa/Denise-1.png"
+					className="Management__Team StudyCenter__Team"
+				/>
+				<img
+					src="https://www.ventos-traquinas.pt/index/images/equipa/Sa%CC%83o-2.png"
+					className="Management__Team Ladybug__Team"
+				/>
+				<img
+					src="https://www.ventos-traquinas.pt/index/images/equipa/Marta.png"
+					className="Management__Team Dolphin__Team"
+				/>
+				<img
+					src="https://www.ventos-traquinas.pt/instalacoes/images/instalacoes-bercario/Adelaide-1.png"
+					className="Nursery__Team"
+				/>
+				<img
+					src="https://www.ventos-traquinas.pt/instalacoes/images/instalacoes-bercario/Alexandra-2.png"
+					className="Nursery__Team"
+				/>
+				<img
+					src="https://www.ventos-traquinas.pt/instalacoes/images/instalacoes-12-24/Ca%CC%81tia.png"
+					className="Ladybug__Team StudyCenter__Team"
+				/>
+				<img
+					src="https://www.ventos-traquinas.pt/instalacoes/images/instalacoes-24-32/Paula-2.png"
+					className="Dolphin__Team"
+				/>
+				<img
+					src="https://www.ventos-traquinas.pt/instalacoes/images/instalacoes-ji/Vanessa-1.png"
+					className="Kindergarden__Team"
+				/>
+				<img
+					src="https://www.ventos-traquinas.pt/instalacoes/images/instalacoes-ce/Rafaela.png"
+					className="StudyCenter__Team"
+				/>
+				<img
+					src="https://www.ventos-traquinas.pt/servicos/images/servico-de-transporte/Miguel-1@2x.png"
+					className="Delivery__Team"
+				/>
+				<img
+					src="https://www.ventos-traquinas.pt/servicos/images/servico-de-transporte/Jorge-1@2x.png"
+					className="Delivery__Team"
+				/>
+				<img
+					src="https://www.ventos-traquinas.pt/servicos/images/servico-de-transporte/Ine%CC%82s-1@2x.png"
+					className="Delivery__Team"
+				/>
+				<img
+					src="https://www.ventos-traquinas.pt/servicos/images/servico-de-alimentacao/Leonor-1.png"
+					className="Kitchen__Team"
+				/>
 			</div>
 			<section className="Company">
 				<h1>Apresentação Geral</h1>
-				<button
-					onClick={() => {
-						document.body.style.backgroundColor = 'red';
-					}}
-				>
-					Click here
-				</button>
+
 				<div className="Greetings">
 					<div className="Left">
 						<img src="https://www.ventos-traquinas.pt/index/images/apresentacao-geral/Logo_VT_RedondocomBorda@2x.png" />
@@ -248,24 +297,31 @@ function index(props) {
 			</section>
 			<section className="Ladybug">
 				<h1>Creche - Sala das Joaninhas</h1>
+				<Nursery />
 			</section>
 			<section className="Dolphin">
 				<h1>Creche - Sala dos Golfinhos</h1>
+				<Nursery />
 			</section>
 			<section className="Kindergarten">
 				<h1>Jardim de Infância</h1>
+				<Nursery />
 			</section>
 			<section className="Study__Center">
 				<h1>Centro de Estudos</h1>
+				<Nursery />
 			</section>
 			<section className="Carriage">
 				<h1>Transporte</h1>
+				<Nursery />
 			</section>
 			<section className="Kitchen">
 				<h1>Cozinha</h1>
+				<Nursery />
 			</section>
 			<section className="Managment">
 				<h1>Direção</h1>
+				<Nursery />
 			</section>
 			<section className="Prices">
 				<h1>Preços</h1>

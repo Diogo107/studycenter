@@ -1,6 +1,24 @@
 .Nursery__Section {
 	max-height: 400px;
 	margin: auto 3em;
+
+	/* div:first-child {
+		width: 30%;
+	} */
+	.Single__Person {
+		display: flex;
+		align-items: center;
+		h5 {
+			margin: auto;
+			background-color: #f39400;
+			padding: 1.5em 3em;
+			margin-left: -20px;
+			border-radius: 0 50px 50px 0;
+		}
+		img {
+			z-index: 1;
+		}
+	}
 	.carousel-inner {
 		max-height: 350px;
 	}
