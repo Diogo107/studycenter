@@ -42,6 +42,114 @@ function index(props) {
 			document.getElementsByClassName('Ladybug')[0].getBoundingClientRect()
 				.top < bottom
 		) {
+			let temp = document.getElementsByClassName('Ladybug__Team');
+			for (let i = 0; i < temp.length; i++) {
+				temp[i].style.width = width;
+				temp[i].style.height = height;
+			}
+		} else {
+			let temp = document.getElementsByClassName('Ladybug__Team');
+			for (let i = 0; i < temp.length; i++) {
+				temp[i].style.width = '30px';
+				temp[i].style.height = '30px';
+			}
+		}
+		if (
+			document.getElementsByClassName('Dolphin')[0].getBoundingClientRect()
+				.top > top &&
+			document.getElementsByClassName('Dolphin')[0].getBoundingClientRect()
+				.top < bottom
+		) {
+			let temp = document.getElementsByClassName('Dolphin__Team');
+			for (let i = 0; i < temp.length; i++) {
+				temp[i].style.width = width;
+				temp[i].style.height = height;
+			}
+		} else {
+			let temp = document.getElementsByClassName('Dolphin__Team');
+			for (let i = 0; i < temp.length; i++) {
+				temp[i].style.width = '30px';
+				temp[i].style.height = '30px';
+			}
+		}
+		if (
+			document.getElementsByClassName('Kindergarden')[0].getBoundingClientRect()
+				.top > top &&
+			document.getElementsByClassName('Kindergarden')[0].getBoundingClientRect()
+				.top < bottom
+		) {
+			let temp = document.getElementsByClassName('Kindergarden__Team');
+			for (let i = 0; i < temp.length; i++) {
+				temp[i].style.width = width;
+				temp[i].style.height = height;
+			}
+		} else {
+			let temp = document.getElementsByClassName('Kindergarden__Team');
+			for (let i = 0; i < temp.length; i++) {
+				temp[i].style.width = '30px';
+				temp[i].style.height = '30px';
+			}
+		}
+		if (
+			document.getElementsByClassName('StudyCenter')[0].getBoundingClientRect()
+				.top > top &&
+			document.getElementsByClassName('StudyCenter')[0].getBoundingClientRect()
+				.top < bottom
+		) {
+			let temp = document.getElementsByClassName('StudyCenter__Team');
+			for (let i = 0; i < temp.length; i++) {
+				temp[i].style.width = width;
+				temp[i].style.height = height;
+			}
+		} else {
+			let temp = document.getElementsByClassName('StudyCenter__Team');
+			for (let i = 0; i < temp.length; i++) {
+				temp[i].style.width = '30px';
+				temp[i].style.height = '30px';
+			}
+		}
+		if (
+			document.getElementsByClassName('Carriage')[0].getBoundingClientRect()
+				.top > top &&
+			document.getElementsByClassName('Carriage')[0].getBoundingClientRect()
+				.top < bottom
+		) {
+			let temp = document.getElementsByClassName('Carriage__Team');
+			for (let i = 0; i < temp.length; i++) {
+				temp[i].style.width = width;
+				temp[i].style.height = height;
+			}
+		} else {
+			let temp = document.getElementsByClassName('Carriage__Team');
+			for (let i = 0; i < temp.length; i++) {
+				temp[i].style.width = '30px';
+				temp[i].style.height = '30px';
+			}
+		}
+		if (
+			document.getElementsByClassName('Kitchen')[0].getBoundingClientRect()
+				.top > top &&
+			document.getElementsByClassName('Kitchen')[0].getBoundingClientRect()
+				.top < bottom
+		) {
+			let temp = document.getElementsByClassName('Kitchen__Team');
+			for (let i = 0; i < temp.length; i++) {
+				temp[i].style.width = width;
+				temp[i].style.height = height;
+			}
+		} else {
+			let temp = document.getElementsByClassName('Kitchen__Team');
+			for (let i = 0; i < temp.length; i++) {
+				temp[i].style.width = '30px';
+				temp[i].style.height = '30px';
+			}
+		}
+		if (
+			document.getElementsByClassName('Management')[0].getBoundingClientRect()
+				.top > top &&
+			document.getElementsByClassName('Management')[0].getBoundingClientRect()
+				.top < bottom
+		) {
 			let temp = document.getElementsByClassName('Management__Team');
 			for (let i = 0; i < temp.length; i++) {
 				temp[i].style.width = width;
@@ -55,6 +163,7 @@ function index(props) {
 			}
 		}
 	});
+
 	return (
 		<div className="Landing__Page">
 			<div className="People__Left">
@@ -96,15 +205,15 @@ function index(props) {
 				/>
 				<img
 					src="https://www.ventos-traquinas.pt/servicos/images/servico-de-transporte/Miguel-1@2x.png"
-					className="Delivery__Team"
+					className="Carriage__Team"
 				/>
 				<img
 					src="https://www.ventos-traquinas.pt/servicos/images/servico-de-transporte/Jorge-1@2x.png"
-					className="Delivery__Team"
+					className="Carriage__Team"
 				/>
 				<img
 					src="https://www.ventos-traquinas.pt/servicos/images/servico-de-transporte/Ine%CC%82s-1@2x.png"
-					className="Delivery__Team"
+					className="Carriage__Team"
 				/>
 				<img
 					src="https://www.ventos-traquinas.pt/servicos/images/servico-de-alimentacao/Leonor-1.png"
@@ -303,11 +412,11 @@ function index(props) {
 				<h1>Creche - Sala dos Golfinhos</h1>
 				<Nursery />
 			</section>
-			<section className="Kindergarten">
+			<section className="Kindergarden">
 				<h1>Jardim de Infância</h1>
 				<Nursery />
 			</section>
-			<section className="Study__Center">
+			<section className="StudyCenter">
 				<h1>Centro de Estudos</h1>
 				<Nursery />
 			</section>
@@ -319,7 +428,7 @@ function index(props) {
 				<h1>Cozinha</h1>
 				<Nursery />
 			</section>
-			<section className="Managment">
+			<section className="Management">
 				<h1>Direção</h1>
 				<Nursery />
 			</section>
@@ -328,6 +437,13 @@ function index(props) {
 			</section>
 			<section className="Contacts">
 				<h1>Contactos</h1>
+				<div>
+					<div className="Left">Left</div>
+					<div className="Right">
+						Right
+						<div id="map"></div>
+					</div>
+				</div>
 			</section>
 		</div>
 	);
