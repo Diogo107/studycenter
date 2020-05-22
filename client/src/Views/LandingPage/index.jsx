@@ -4,10 +4,67 @@ import './style.scss';
 import Nursery from './../../Components/LandingPage/Nursery';
 
 function index(props) {
+	window.addEventListener('scroll', (event) => {
+		// important to know yposition of page => window.scrollY;
+		let nurserySectionY = document.getElementsByClassName('Nursery');
+		let ladybugSectionY = document.getElementsByClassName('Ladybug');
+		console.log('nursery', nurserySectionY[0].getBoundingClientRect().top);
+		if (
+			nurserySectionY[0].getBoundingClientRect().top > 0 &&
+			nurserySectionY[0].getBoundingClientRect().top < 600
+		) {
+			document.getElementById('Management__Team').style.display = 'block';
+		} else {
+			document.getElementById('Management__Team').style.display = 'none';
+		}
+		/* if (
+			ladybugSectionY[0].getBoundingClientRect().top > 0 &&
+			ladybugSectionY[0].getBoundingClientRect().top < 600
+		) {
+			document.getElementById('Nursery__Team').style.display = 'block';
+		} else {
+			document.getElementById('Nursery__Team').style.display = 'none';
+		} */
+
+		/* let scroll = event;
+		var rect = document.body.getBoundingClientRect();
+		let hello = document.getElementsByClassName('Landing__Page');
+		if (nurserySectionY[0].getBoundingClientRect().top < 200) {
+			hello[0].style.backgroundColor = 'red';
+		} else {
+			hello[0].style.backgroundColor = 'white';
+		} */
+	});
 	return (
 		<div className="Landing__Page">
+			<div className="People__Left">
+				<div id="Management__Team">
+					<img src="https://www.ventos-traquinas.pt/index/images/equipa/Denise-1.png" />
+					<img src="https://www.ventos-traquinas.pt/index/images/equipa/Sa%CC%83o-2.png" />
+					<img src="https://www.ventos-traquinas.pt/index/images/equipa/Marta.png" />
+				</div>
+				{/* <div className="Nursery__Team">
+					<img src="https://www.ventos-traquinas.pt/index/images/equipa/Denise-1.png" />
+					<img src="https://www.ventos-traquinas.pt/index/images/equipa/Sa%CC%83o-2.png" />
+				</div>
+				<div className="Ladybug__Team">
+					<img src="https://www.ventos-traquinas.pt/index/images/equipa/Denise-1.png" />
+					<img src="https://www.ventos-traquinas.pt/index/images/equipa/Sa%CC%83o-2.png" />
+				</div>
+				<div className="Dolphins__Team">
+					<img src="https://www.ventos-traquinas.pt/index/images/equipa/Denise-1.png" />
+					<img src="https://www.ventos-traquinas.pt/index/images/equipa/Sa%CC%83o-2.png" />
+				</div> */}
+			</div>
 			<section className="Company">
 				<h1>Apresentação Geral</h1>
+				<button
+					onClick={() => {
+						document.body.style.backgroundColor = 'red';
+					}}
+				>
+					Click here
+				</button>
 				<div className="Greetings">
 					<div className="Left">
 						<img src="https://www.ventos-traquinas.pt/index/images/apresentacao-geral/Logo_VT_RedondocomBorda@2x.png" />
@@ -189,10 +246,10 @@ function index(props) {
 				<h1>Berçário</h1>
 				<Nursery />
 			</section>
-			<section className="Creche">
+			<section className="Ladybug">
 				<h1>Creche - Sala das Joaninhas</h1>
 			</section>
-			<section className="Creche">
+			<section className="Dolphin">
 				<h1>Creche - Sala dos Golfinhos</h1>
 			</section>
 			<section className="Kindergarten">

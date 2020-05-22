@@ -5,8 +5,24 @@
 	justify-content: center;
 	align-items: center;
 	background-color: #e2e1e0;
+	.People__Left {
+		position: fixed;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
+		align-items: center;
+		top: 70px;
+		left: 0;
+		z-index: 3;
+		width: 15%;
+		height: 87vh;
+		img {
+			width: 130px;
+			height: 130px;
+		}
+	}
 	section {
-		width: 80%;
+		width: 70%;
 		padding: 2em;
 		height: fit-content;
 		background-color: white;
@@ -107,6 +123,7 @@
 		display: block;
 	}
 	.Nursery {
+		height: fit-content;
 		max-height: 500px;
 	}
 }

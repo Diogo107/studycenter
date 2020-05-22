@@ -1,5 +1,7 @@
 .Nursery__Section {
-	height: 400px;
-	color: red;
-	background-color: red;
+	max-height: 400px;
+	margin: auto 3em;
+	.carousel-inner {
+		max-height: 350px;
+	}
 }

@@ -4,8 +4,7 @@ import './style.scss';
 
 function index(props) {
 	return (
-		<div classname="Nursery__Section">
-			hellosasdasd
+		<div className="Nursery__Section">
 			<Carousel>
 				<Carousel.Item>
 					<img
