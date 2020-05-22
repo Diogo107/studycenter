@@ -1,5 +1,7 @@
 import React from 'react';
 import './style.scss';
+//Components
+import Nursery from './../../Components/LandingPage/Nursery';
 
 function index(props) {
 	return (
@@ -151,10 +153,13 @@ function index(props) {
 				</div>
 				<div class="clicker" tabindex="1">
 					<img
-						src="https://image.flaticon.com/icons/png/512/2906/2906386.png"
+						src="https://image.flaticon.com/icons/svg/2926/2926410.svg"
 						alt="Baby"
 					/>
-					<h4>
+					<h4>Alimentação</h4>
+				</div>
+				<div class="hiddendiv">
+					<p>
 						A alimentação das crianças é de vital importância para um bom
 						desenvolvimento e crescimento saudável e para a prevenção de várias
 						doenças (tanto na infância como na vida adulta). No sentido de
@@ -164,14 +169,25 @@ function index(props) {
 						produtos alimentares criteriosamente selecionados e seguindo
 						rigorosamente as normas do HACCP. O serviço de alimentação inclui o
 						almoço.
-					</h4>
+					</p>
+				</div>
+				<div class="clicker" tabindex="1">
+					<img
+						src="https://image.flaticon.com/icons/svg/2949/2949776.svg"
+						alt="Baby"
+					/>
+					<h4>Transporte</h4>
 				</div>
 				<div class="hiddendiv">
-					<p>Consultas de Psicologia</p>
+					<p>
+						Viaturas preparadas para transportar os seus filhos sempre com total
+						segurança.
+					</p>
 				</div>
 			</section>
-			<section className="Berçário">
+			<section className="Nursery">
 				<h1>Berçário</h1>
+				<Nursery />
 			</section>
 			<section className="Creche">
 				<h1>Creche - Sala das Joaninhas</h1>
