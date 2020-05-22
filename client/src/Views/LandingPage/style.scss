@@ -1,0 +1,109 @@
+.Landing__Page {
+	margin-top: 70px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #e2e1e0;
+	section {
+		width: 80%;
+		padding: 2em;
+		height: fit-content;
+		background-color: white;
+		box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+		margin: 1em auto;
+		.Greetings {
+			display: flex;
+			.Left {
+				width: 30%;
+				display: flex;
+				align-items: center;
+			}
+			.Right {
+				width: 70%;
+				padding: 1em;
+				text-align: justify;
+			}
+			img {
+				width: 100%;
+			}
+		}
+	}
+	.Downloads {
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+		p {
+			margin: 0 0 0 10px;
+			padding-left: 10px;
+			border-left: lightgray solid 1px;
+		}
+
+		button {
+			display: flex;
+			align-items: center;
+			flex-direction: row;
+			background-color: transparent;
+			border: 0.5px lightgray solid;
+			border-radius: 10px;
+			outline: none;
+			&:active,
+			:focus {
+				border-radius: 10px;
+				outline: none;
+				border: none;
+				box-shadow: 1px 3px #888888;
+			}
+			img {
+				padding: 1px;
+				border-radius: 50px;
+				background-color: rgba($color: #f39400, $alpha: 0.6);
+			}
+		}
+	}
+	.clicker {
+		width: 90%;
+		text-align: left;
+		margin: auto;
+		outline: none;
+		cursor: pointer;
+		color: #f39400;
+		margin-top: 1em;
+		margin-bottom: 1em;
+		display: flex;
+		align-items: center;
+		h4 {
+			background-color: #f39400;
+			margin: 0 0 0 -16px;
+			padding: 0.5em 2em;
+			color: white;
+			border-radius: 0 50px 50px 0;
+			border: solid black 0.5px;
+			max-height: 70px;
+		}
+		img {
+			width: 100px;
+			height: 100px;
+			border-radius: 50px;
+			background-color: #f39400;
+			padding: 13px;
+			z-index: 1;
+			border: solid black 0.5px;
+		}
+	}
+
+	.hiddendiv {
+		display: none;
+		width: 100%;
+		margin: auto;
+		text-align: left;
+		padding-left: 2em;
+		padding-right: 2em;
+		color: #8f8c85;
+		margin-bottom: 2em;
+	}
+
+	.clicker:focus + .hiddendiv {
+		display: block;
+	}
+}

@@ -5,6 +5,7 @@ import NavUser from './Components/NavUser';
 import SignIn from './Views/Auth/SignIn';
 import SignUp from './Views/Auth/SignUp';
 import Main from './Views/Main';
+import LandingPage from './Views/LandingPage';
 import Sidebar from './Components/Sidebar';
 import Footer from './Components/Footer';
 import { loadUserInformation } from './Services/authentication';
@@ -73,7 +74,7 @@ class App extends Component {
 							/>
 						)}
 					/>
-					{this.state.user && (
+					{(this.state.user && (
 						<>
 							<div className="main">
 								<div className="sidebar__APP">
@@ -100,6 +101,13 @@ class App extends Component {
 								/>
 							</div>
 						</>
+					)) || (
+						<Route
+							path="*"
+							render={(props) => (
+								<LandingPage user={this.state.user} {...props} />
+							)}
+						/>
 					)}
 					<div>
 						<Route
