@@ -2,6 +2,26 @@ import React from 'react';
 import './style.scss';
 //Components
 import Nursery from './../../Components/LandingPage/Nursery';
+import GoogleMapReact from 'google-map-react';
+
+const Infantário = ({ text }) => (
+	<div>
+		<img
+			src="https://www.ventos-traquinas.pt/index/images/apresentacao-geral/Logo_VT_RedondocomBorda@2x.png"
+			style={{ width: '20px', height: '20px' }}
+		/>
+		{text}
+	</div>
+);
+const CentroEstudos = ({ text }) => (
+	<div>
+		<img
+			src="https://www.ventos-traquinas.pt/index/images/apresentacao-geral/Logo_VT_RedondocomBorda@2x.png"
+			style={{ width: '20px', height: '20px' }}
+		/>
+		{text}
+	</div>
+);
 
 function index(props) {
 	window.addEventListener('scroll', (event) => {
@@ -163,6 +183,13 @@ function index(props) {
 			}
 		}
 	});
+	let defaultProps = {
+		center: {
+			lat: 38.663996,
+			lng: -9.052109,
+		},
+		zoom: 15,
+	};
 
 	return (
 		<div className="Landing__Page">
@@ -438,10 +465,61 @@ function index(props) {
 			<section className="Contacts">
 				<h1>Contactos</h1>
 				<div>
-					<div className="Left">Left</div>
+					<div className="Left">
+						<div>
+							<img src="https://image.flaticon.com/icons/png/512/2933/2933294.png" />
+							<a hre="tel:967551142">
+								<p>967 551 142</p>
+							</a>
+						</div>
+						<div>
+							<img src="https://image.flaticon.com/icons/svg/2920/2920101.svg" />
+							<a href="mailto:geral@ventos-traquinas.pt">
+								<p>geral@ventos-traquinas.pt</p>
+							</a>
+						</div>
+						<div>
+							<img src="https://image.flaticon.com/icons/svg/255/255315.svg" />
+							<a href="https://www.facebook.com/ventos.traquinas">
+								<p>/ventos.traquinas</p>
+							</a>
+						</div>
+						<div>
+							<img src="https://image.flaticon.com/icons/svg/684/684908.svg" />
+							<a href="https://www.google.com/maps/place/Bairro+Quinta+da+Fonte+1,+Lavradio/@38.6623368,-9.057601,17z/data=!3m1!4b1!4m12!1m6!3m5!1s0xd1936457af3fcb3:0x1e5b1fc736d8c5fa!2sVentos+Traquinas!8m2!3d38.6656211!4d-9.0470237!3m4!1s0xd1937b499135e7f:0xc0205921e55c1543!8m2!3d38.6622983!4d-9.0555092">
+								<p>
+									Bairro Quinta da Fonte, lote 2 <br />
+									2835-304 Lavradio
+								</p>
+							</a>
+						</div>
+						<div>
+							<img src="https://image.flaticon.com/icons/svg/684/684908.svg" />
+							<a href="https://www.google.com/maps/place/Ventos+Traquinas/@38.6656211,-9.0492124,17z/data=!3m1!4b1!4m5!3m4!1s0xd1936457af3fcb3:0x1e5b1fc736d8c5fa!8m2!3d38.6656211!4d-9.0470237">
+								<p>
+									Rua Samora Machel, 17-A <br />
+									2835-158 Baixa da Banheira
+								</p>
+							</a>
+						</div>
+					</div>
 					<div className="Right">
-						Right
-						<div id="map"></div>
+						<div className="maps" style={{ height: '300px', width: '100%' }}>
+							<GoogleMapReact
+								bootstrapURLKeys={{
+									key: 'AIzaSyDu1sb9-aIv5r5A1xPPFUW_vj5rVKu86F4',
+								}}
+								defaultCenter={defaultProps.center}
+								defaultZoom={defaultProps.zoom}
+							>
+								<Infantário lat={38.66269} lng={-9.055328} text="Infantário" />
+								<CentroEstudos
+									lat={38.665847}
+									lng={-9.046766}
+									text="Centro Estudos"
+								/>
+							</GoogleMapReact>
+						</div>
 					</div>
 				</div>
 			</section>
