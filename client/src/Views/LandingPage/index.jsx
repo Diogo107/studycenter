@@ -193,7 +193,7 @@ function index(props) {
 
 	return (
 		<div className="Landing__Page">
-			<div className="People__Left">
+			<div className="People__Left Table__hide">
 				<img
 					src="https://www.ventos-traquinas.pt/index/images/equipa/Denise-1.png"
 					className="Management__Team StudyCenter__Team"
@@ -251,7 +251,7 @@ function index(props) {
 				<h1>Apresentação Geral</h1>
 
 				<div className="Greetings">
-					<div className="Left">
+					<div className="Left Table__hide">
 						<img src="https://www.ventos-traquinas.pt/index/images/apresentacao-geral/Logo_VT_RedondocomBorda@2x.png" />
 					</div>
 					<div className="Right">
@@ -460,7 +460,6 @@ function index(props) {
 				<Nursery />
 			</section>
 			<section className="Prices">
-				<h1>Preços</h1>
 				<h3>Mensalidades desde 65€*</h3>
 				<div>
 					<div>
@@ -482,8 +481,11 @@ function index(props) {
 					<div>
 						<img src="https://www.ventos-traquinas.pt/servicos/images/centro-de-estudos/Talheres%20e%20Prato.jpg" />
 						<h5>Refeição</h5>
-						<p>Almoços - 35€/mês</p>
-						<p>Ao dia - 3,50€ /dia</p>
+						<p>
+							Almoços - 35€/mês
+							<br />
+							Ao dia - 3,50€ /dia
+						</p>
 					</div>
 				</div>
 			</section>

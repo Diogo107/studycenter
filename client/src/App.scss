@@ -105,7 +105,7 @@
 		grid-template-columns: auto;
 	}
 	.Table__hide {
-		display: none;
+		display: none !important;
 	}
 	.Summary__View {
 		padding: 2em 1em !important;
@@ -119,6 +119,61 @@
 	}
 	.navbar {
 		flex-wrap: nowrap !important;
+	}
+	body {
+		width: 100vw !important;
+		.Landing__Page {
+			section {
+				width: 95vw;
+			}
+			h1 {
+				font-size: 1em;
+				font-weight: bold;
+			}
+			.Greetings > .Right {
+				width: 100% !important;
+				padding: 0 !important;
+			}
+			.Downloads {
+				flex-direction: column;
+				> button {
+					width: 300px;
+					margin-bottom: 1em;
+				}
+			}
+			.clicker > h4 {
+				font-size: 1em;
+			}
+			.Prices {
+				padding-left: 0.3em;
+				padding-right: 0.3em;
+				h3 {
+					font-size: 1em;
+					font-weight: bold;
+				}
+				h5 {
+					font-size: 1em;
+				}
+				p {
+					font-size: 10px;
+				}
+				img {
+					width: 50px;
+					height: 50px;
+				}
+			}
+			.Contacts {
+				padding-left: 0.3em;
+				padding-right: 0.3em;
+				> div {
+					flex-direction: column;
+				}
+				.Left,
+				.Right {
+					width: 100% !important;
+				}
+			}
+		}
 	}
 }
 
