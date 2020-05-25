@@ -156,4 +156,11 @@
 			padding: 0.5em;
 		}
 	}
+	a {
+		color: inherit;
+	}
+	.Prices > div {
+		display: flex;
+		justify-content: space-evenly;
+	}
 }

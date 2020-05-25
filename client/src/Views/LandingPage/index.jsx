@@ -461,6 +461,36 @@ function index(props) {
 			</section>
 			<section className="Prices">
 				<h1>Preços</h1>
+				<h3>Mensalidades desde 65€*</h3>
+				<div>
+					<div>
+						<img src="https://www.ventos-traquinas.pt/servicos/images/centro-de-estudos/Chapeu%20Academico-cutout@2x.png" />
+						<h5>Mensalidades</h5>
+						<p>
+							2 dias/semana - 65€ * 3 dias/semana - 85€ * 5 dias/semana - 100€ *
+						</p>
+						<p>
+							2 dias/semana - 65€ * 3 dias/semana - 85€ * 5 dias/semana - 100€ *
+						</p>
+						<p>
+							2 dias/semana - 65€ * 3 dias/semana - 85€ * 5 dias/semana - 100€ *
+						</p>
+					</div>
+					<div>
+						<img src="https://www.ventos-traquinas.pt/servicos/images/centro-de-estudos/Transporte@2x.jpg" />
+						<h5>Transporte</h5>
+						<p>
+							De casa ao centro de estudos ou à escola. Sujeito a
+							disponibilidade
+						</p>
+					</div>
+					<div>
+						<img src="https://www.ventos-traquinas.pt/servicos/images/centro-de-estudos/Talheres%20e%20Prato.jpg" />
+						<h5>Refeição</h5>
+						<p>Almoços - 35€/mês</p>
+						<p>Ao dia - 3,50€ /dia</p>
+					</div>
+				</div>
 			</section>
 			<section className="Contacts">
 				<h1>Contactos</h1>
@@ -468,7 +498,7 @@ function index(props) {
 					<div className="Left">
 						<div>
 							<img src="https://image.flaticon.com/icons/png/512/2933/2933294.png" />
-							<a hre="tel:967551142">
+							<a href="tel:967-551-142">
 								<p>967 551 142</p>
 							</a>
 						</div>
