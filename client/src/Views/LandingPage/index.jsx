@@ -24,165 +24,163 @@ const CentroEstudos = ({ text }) => (
 );
 
 function index(props) {
-	window.addEventListener('scroll', (event) => {
-		// important to know yposition of page => window.scrollY;
-		let bottom = Math.round(window.innerHeight / 3);
-		let top = 70 - window.innerHeight / 3;
-		let width = '80px';
-		let height = '80px';
-		console.log(
-			top,
-			Math.round(
+	if (props.match.url == '/') {
+		window.addEventListener('scroll', (event) => {
+			let bottom = Math.round(window.innerHeight / 3);
+			let top = 70 - window.innerHeight / 3;
+			let width = '80px';
+			let height = '80px';
+			if (
 				document.getElementsByClassName('Nursery')[0].getBoundingClientRect()
-					.top
-			),
-			bottom
-		);
-		if (
-			document.getElementsByClassName('Nursery')[0].getBoundingClientRect()
-				.top > top &&
-			document.getElementsByClassName('Nursery')[0].getBoundingClientRect()
-				.top < bottom
-		) {
-			let temp = document.getElementsByClassName('Nursery__Team');
-			for (let i = 0; i < temp.length; i++) {
-				temp[i].style.width = width;
-				temp[i].style.height = height;
+					.top > top &&
+				document.getElementsByClassName('Nursery')[0].getBoundingClientRect()
+					.top < bottom
+			) {
+				let temp = document.getElementsByClassName('Nursery__Team');
+				for (let i = 0; i < temp.length; i++) {
+					temp[i].style.width = width;
+					temp[i].style.height = height;
+				}
+			} else {
+				let temp = document.getElementsByClassName('Nursery__Team');
+				for (let i = 0; i < temp.length; i++) {
+					temp[i].style.width = '30px';
+					temp[i].style.height = '30px';
+				}
 			}
-		} else {
-			let temp = document.getElementsByClassName('Nursery__Team');
-			for (let i = 0; i < temp.length; i++) {
-				temp[i].style.width = '30px';
-				temp[i].style.height = '30px';
+			if (
+				document.getElementsByClassName('Ladybug')[0].getBoundingClientRect()
+					.top > top &&
+				document.getElementsByClassName('Ladybug')[0].getBoundingClientRect()
+					.top < bottom
+			) {
+				let temp = document.getElementsByClassName('Ladybug__Team');
+				for (let i = 0; i < temp.length; i++) {
+					temp[i].style.width = width;
+					temp[i].style.height = height;
+				}
+			} else {
+				let temp = document.getElementsByClassName('Ladybug__Team');
+				for (let i = 0; i < temp.length; i++) {
+					temp[i].style.width = '30px';
+					temp[i].style.height = '30px';
+				}
 			}
-		}
-		if (
-			document.getElementsByClassName('Ladybug')[0].getBoundingClientRect()
-				.top > top &&
-			document.getElementsByClassName('Ladybug')[0].getBoundingClientRect()
-				.top < bottom
-		) {
-			let temp = document.getElementsByClassName('Ladybug__Team');
-			for (let i = 0; i < temp.length; i++) {
-				temp[i].style.width = width;
-				temp[i].style.height = height;
+			if (
+				document.getElementsByClassName('Dolphin')[0].getBoundingClientRect()
+					.top > top &&
+				document.getElementsByClassName('Dolphin')[0].getBoundingClientRect()
+					.top < bottom
+			) {
+				let temp = document.getElementsByClassName('Dolphin__Team');
+				for (let i = 0; i < temp.length; i++) {
+					temp[i].style.width = width;
+					temp[i].style.height = height;
+				}
+			} else {
+				let temp = document.getElementsByClassName('Dolphin__Team');
+				for (let i = 0; i < temp.length; i++) {
+					temp[i].style.width = '30px';
+					temp[i].style.height = '30px';
+				}
 			}
-		} else {
-			let temp = document.getElementsByClassName('Ladybug__Team');
-			for (let i = 0; i < temp.length; i++) {
-				temp[i].style.width = '30px';
-				temp[i].style.height = '30px';
+			if (
+				document
+					.getElementsByClassName('Kindergarden')[0]
+					.getBoundingClientRect().top > top &&
+				document
+					.getElementsByClassName('Kindergarden')[0]
+					.getBoundingClientRect().top < bottom
+			) {
+				let temp = document.getElementsByClassName('Kindergarden__Team');
+				for (let i = 0; i < temp.length; i++) {
+					temp[i].style.width = width;
+					temp[i].style.height = height;
+				}
+			} else {
+				let temp = document.getElementsByClassName('Kindergarden__Team');
+				for (let i = 0; i < temp.length; i++) {
+					temp[i].style.width = '30px';
+					temp[i].style.height = '30px';
+				}
 			}
-		}
-		if (
-			document.getElementsByClassName('Dolphin')[0].getBoundingClientRect()
-				.top > top &&
-			document.getElementsByClassName('Dolphin')[0].getBoundingClientRect()
-				.top < bottom
-		) {
-			let temp = document.getElementsByClassName('Dolphin__Team');
-			for (let i = 0; i < temp.length; i++) {
-				temp[i].style.width = width;
-				temp[i].style.height = height;
+			if (
+				document
+					.getElementsByClassName('StudyCenter')[0]
+					.getBoundingClientRect().top > top &&
+				document
+					.getElementsByClassName('StudyCenter')[0]
+					.getBoundingClientRect().top < bottom
+			) {
+				let temp = document.getElementsByClassName('StudyCenter__Team');
+				for (let i = 0; i < temp.length; i++) {
+					temp[i].style.width = width;
+					temp[i].style.height = height;
+				}
+			} else {
+				let temp = document.getElementsByClassName('StudyCenter__Team');
+				for (let i = 0; i < temp.length; i++) {
+					temp[i].style.width = '30px';
+					temp[i].style.height = '30px';
+				}
 			}
-		} else {
-			let temp = document.getElementsByClassName('Dolphin__Team');
-			for (let i = 0; i < temp.length; i++) {
-				temp[i].style.width = '30px';
-				temp[i].style.height = '30px';
+			if (
+				document.getElementsByClassName('Carriage')[0].getBoundingClientRect()
+					.top > top &&
+				document.getElementsByClassName('Carriage')[0].getBoundingClientRect()
+					.top < bottom
+			) {
+				let temp = document.getElementsByClassName('Carriage__Team');
+				for (let i = 0; i < temp.length; i++) {
+					temp[i].style.width = width;
+					temp[i].style.height = height;
+				}
+			} else {
+				let temp = document.getElementsByClassName('Carriage__Team');
+				for (let i = 0; i < temp.length; i++) {
+					temp[i].style.width = '30px';
+					temp[i].style.height = '30px';
+				}
 			}
-		}
-		if (
-			document.getElementsByClassName('Kindergarden')[0].getBoundingClientRect()
-				.top > top &&
-			document.getElementsByClassName('Kindergarden')[0].getBoundingClientRect()
-				.top < bottom
-		) {
-			let temp = document.getElementsByClassName('Kindergarden__Team');
-			for (let i = 0; i < temp.length; i++) {
-				temp[i].style.width = width;
-				temp[i].style.height = height;
+			if (
+				document.getElementsByClassName('Kitchen')[0].getBoundingClientRect()
+					.top > top &&
+				document.getElementsByClassName('Kitchen')[0].getBoundingClientRect()
+					.top < bottom
+			) {
+				let temp = document.getElementsByClassName('Kitchen__Team');
+				for (let i = 0; i < temp.length; i++) {
+					temp[i].style.width = width;
+					temp[i].style.height = height;
+				}
+			} else {
+				let temp = document.getElementsByClassName('Kitchen__Team');
+				for (let i = 0; i < temp.length; i++) {
+					temp[i].style.width = '30px';
+					temp[i].style.height = '30px';
+				}
 			}
-		} else {
-			let temp = document.getElementsByClassName('Kindergarden__Team');
-			for (let i = 0; i < temp.length; i++) {
-				temp[i].style.width = '30px';
-				temp[i].style.height = '30px';
+			if (
+				document.getElementsByClassName('Management')[0].getBoundingClientRect()
+					.top > top &&
+				document.getElementsByClassName('Management')[0].getBoundingClientRect()
+					.top < bottom
+			) {
+				let temp = document.getElementsByClassName('Management__Team');
+				for (let i = 0; i < temp.length; i++) {
+					temp[i].style.width = width;
+					temp[i].style.height = height;
+				}
+			} else {
+				let temp = document.getElementsByClassName('Management__Team');
+				for (let i = 0; i < temp.length; i++) {
+					temp[i].style.width = '30px';
+					temp[i].style.height = '30px';
+				}
 			}
-		}
-		if (
-			document.getElementsByClassName('StudyCenter')[0].getBoundingClientRect()
-				.top > top &&
-			document.getElementsByClassName('StudyCenter')[0].getBoundingClientRect()
-				.top < bottom
-		) {
-			let temp = document.getElementsByClassName('StudyCenter__Team');
-			for (let i = 0; i < temp.length; i++) {
-				temp[i].style.width = width;
-				temp[i].style.height = height;
-			}
-		} else {
-			let temp = document.getElementsByClassName('StudyCenter__Team');
-			for (let i = 0; i < temp.length; i++) {
-				temp[i].style.width = '30px';
-				temp[i].style.height = '30px';
-			}
-		}
-		if (
-			document.getElementsByClassName('Carriage')[0].getBoundingClientRect()
-				.top > top &&
-			document.getElementsByClassName('Carriage')[0].getBoundingClientRect()
-				.top < bottom
-		) {
-			let temp = document.getElementsByClassName('Carriage__Team');
-			for (let i = 0; i < temp.length; i++) {
-				temp[i].style.width = width;
-				temp[i].style.height = height;
-			}
-		} else {
-			let temp = document.getElementsByClassName('Carriage__Team');
-			for (let i = 0; i < temp.length; i++) {
-				temp[i].style.width = '30px';
-				temp[i].style.height = '30px';
-			}
-		}
-		if (
-			document.getElementsByClassName('Kitchen')[0].getBoundingClientRect()
-				.top > top &&
-			document.getElementsByClassName('Kitchen')[0].getBoundingClientRect()
-				.top < bottom
-		) {
-			let temp = document.getElementsByClassName('Kitchen__Team');
-			for (let i = 0; i < temp.length; i++) {
-				temp[i].style.width = width;
-				temp[i].style.height = height;
-			}
-		} else {
-			let temp = document.getElementsByClassName('Kitchen__Team');
-			for (let i = 0; i < temp.length; i++) {
-				temp[i].style.width = '30px';
-				temp[i].style.height = '30px';
-			}
-		}
-		if (
-			document.getElementsByClassName('Management')[0].getBoundingClientRect()
-				.top > top &&
-			document.getElementsByClassName('Management')[0].getBoundingClientRect()
-				.top < bottom
-		) {
-			let temp = document.getElementsByClassName('Management__Team');
-			for (let i = 0; i < temp.length; i++) {
-				temp[i].style.width = width;
-				temp[i].style.height = height;
-			}
-		} else {
-			let temp = document.getElementsByClassName('Management__Team');
-			for (let i = 0; i < temp.length; i++) {
-				temp[i].style.width = '30px';
-				temp[i].style.height = '30px';
-			}
-		}
-	});
+		});
+	}
+
 	let defaultProps = {
 		center: {
 			lat: 38.663996,
