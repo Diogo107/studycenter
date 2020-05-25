@@ -467,13 +467,8 @@ function index(props) {
 						<img src="https://www.ventos-traquinas.pt/servicos/images/centro-de-estudos/Chapeu%20Academico-cutout@2x.png" />
 						<h5>Mensalidades</h5>
 						<p>
-							2 dias/semana - 65€ * 3 dias/semana - 85€ * 5 dias/semana - 100€ *
-						</p>
-						<p>
-							2 dias/semana - 65€ * 3 dias/semana - 85€ * 5 dias/semana - 100€ *
-						</p>
-						<p>
-							2 dias/semana - 65€ * 3 dias/semana - 85€ * 5 dias/semana - 100€ *
+							2 dias/semana - 65€ *<br />
+							3 dias/semana - 85€ *<br />5 dias/semana - 100€ *
 						</p>
 					</div>
 					<div>
