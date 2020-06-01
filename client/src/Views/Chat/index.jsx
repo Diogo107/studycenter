@@ -29,7 +29,7 @@ class index extends Component {
 		this.setState({ listOfPeople });
 		setInterval(() => {
 			this.messagesUpdated();
-		}, 500000);
+		}, 5000);
 	}
 
 	handleInputChange = async (event) => {
@@ -47,11 +47,14 @@ class index extends Component {
 		let myId = this.props.user._id;
 		console.log('this state', otherId, myId);
 		let selectedConversation;
-		if (updatedList !== this.state.updatedList) {
+		if (otherId && updatedList !== this.state.updatedList) {
 			selectedConversation = updatedList.filter((single) => {
 				return single.users.includes(otherId) && single.users.includes(otherId);
 			});
 			console.log('updatedList', selectedConversation);
+			selectedConversation.length == 0
+				? (selectedConversation = undefined)
+				: (selectedConversation = selectedConversation);
 			this.setState({
 				updatedList,
 				selectedConversation,
