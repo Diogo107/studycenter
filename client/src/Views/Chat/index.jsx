@@ -25,8 +25,9 @@ class index extends Component {
 		listOfPeople = listOfPeople.filter((single) => {
 			return single._id !== this.props.user._id;
 		});
+		let filteredListOfPeople = listOfPeople;
 		console.log('list of people', listOfPeople);
-		this.setState({ listOfPeople });
+		this.setState({ listOfPeople, filteredListOfPeople });
 		setInterval(() => {
 			this.messagesUpdated();
 		}, 5000);
@@ -39,6 +40,7 @@ class index extends Component {
 			[inputName]: value,
 		});
 		console.log(this.state);
+		this.filterChat();
 	};
 
 	messagesUpdated = async () => {
@@ -76,13 +78,26 @@ class index extends Component {
 		}
 	};
 
+	filterChat = () => {
+		let filteredListOfPeople = this.state.listOfPeople.filter((single) => {
+			return single.name
+				.toLowerCase()
+				.includes(this.state.person.toLowerCase());
+		});
+		this.setState({ filteredListOfPeople });
+	};
+
 	render() {
 		return (
 			<div className="Chat">
 				<div className="List__of__People">
-					<Input placeholder="This will be to search person" />
-					{this.state.listOfPeople &&
-						this.state.listOfPeople.map((single) => (
+					<Input
+						placeholder="This will be to search person"
+						name="person"
+						onChange={this.handleInputChange}
+					/>
+					{this.state.filteredListOfPeople &&
+						this.state.filteredListOfPeople.map((single) => (
 							<Link to={'/dashboard/chat/' + single._id}>
 								<div className="Person__Avatar">
 									<img src={Avatar} alt="avatar" />
