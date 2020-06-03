@@ -23,6 +23,14 @@ class index extends Component {
 
 	async componentDidMount() {
 		let list = await getTests();
+		console.log(moment(list[0].date).format('DD [/] MM [/] Y'));
+		console.log(moment(Date()).format('DD [/] MM [/] Y'));
+		console.log(moment(list[0].date).format());
+		list = list.filter((single) => {
+			if (moment(single.date).format() > moment(Date()).format()) {
+				return single;
+			}
+		});
 		this.setState({
 			list: list,
 			filteredList: list,

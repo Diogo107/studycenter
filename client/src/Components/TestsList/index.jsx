@@ -13,8 +13,13 @@ class index extends Component {
 
 	async componentDidMount() {
 		let list = await getTests();
+		list = list.filter((single) => single.userId == this.props.user._id);
 		this.setState({
-			list: list.filter((single) => single.userId == this.props.user._id),
+			list: list.filter((single) => {
+				if (moment(single.date).format() > moment(Date()).format()) {
+					return single;
+				}
+			}),
 		});
 	}
 
