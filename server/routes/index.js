@@ -11,9 +11,12 @@ const Article = require('../models/article');
 const DailyChallenge = require('../models/dailyChallenge');
 const Chat = require('../models/chat');
 const multer = require('multer');
-const upload = multer({ dest: 'uploadedFiles/' });
+const upload = multer({ dest: './public/uploads' });
 const uploader = require('./../multer-configure.js');
 const bcryptjs = require('bcryptjs');
+const fs = require('fs');
+const { promisify } = require('util');
+const pipeline = promisify(require('stream').pipeline);
 
 router.get('/', (req, res, next) => {
 	res.json({ type: 'success', data: { title: 'Hello World' } });
@@ -79,21 +82,37 @@ router.post('/newAnnouncement', (req, res, next) => {
 		});
 });
 
-router.post('/uploadMaterial', async (req, res, next) => {
-	const { Subject, Theme, Year, Sumary, Questions } = req.body;
-	try {
-		const result = await Material.create({
-			Subject,
-			Theme,
-			Year,
-			Sumary,
-			Questions,
-		});
-		res.json({ result });
-	} catch (error) {
-		console.log(error);
+router.post(
+	'/uploadMaterial',
+	uploader.single('file'),
+	async (req, res, next) => {
+		const { Subject, Theme, Year, Sumary, Questions } = req.body;
+		/* console.log({ Subject, Theme, Year, Sumary, Questions });
+		console.log(req.body);
+		console.log(req.file); */
+		const { file } = req;
+		const Attachment = file.url;
+		console.log('?????????????????????????', file.url, Theme);
+		/* await pipeline(
+			file.stream,
+			fs.createWriteStream(`${__dirname}/../public/images/${fileName}`)
+		); */
+
+		try {
+			const result = await Material.create({
+				Subject,
+				Theme,
+				Year,
+				Sumary,
+				Questions,
+				Attachment,
+			});
+			res.json({ result });
+		} catch (error) {
+			console.log(error);
+		}
 	}
-});
+);
 
 router.post('/sendMessage', async (req, res, next) => {
 	let { content, myId, otherId, name } = req.body.data;

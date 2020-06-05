@@ -84,6 +84,7 @@ class index extends Component {
 							<th>Tema</th>
 							<th>Resumos</th>
 							<th>Questões</th>
+							<th>Anexo</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -106,6 +107,13 @@ class index extends Component {
 											<Link to={'/dashboard/questions/' + single._id}>
 												<img src="https://image.flaticon.com/icons/png/512/1164/1164713.png" />
 											</Link>
+										</td>
+									)) || <td></td>}
+									{(single.Attachment && (
+										<td>
+											<a href={single.Attachment}>
+												<img src="https://image.flaticon.com/icons/svg/524/524553.svg" />
+											</a>
 										</td>
 									)) || <td></td>}
 									<td className="Table__hide">

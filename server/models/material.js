@@ -26,6 +26,7 @@ const schema = new mongoose.Schema(
 			type: String,
 			trim: true,
 		},
+		Attachment: String,
 	},
 	{
 		timestamp: { type: Date, default: Date.now },

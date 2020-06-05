@@ -153,8 +153,16 @@ export { getMessages };
 
 const uploadMaterial = async (data) => {
 	console.log('other services', data);
+	const content = new FormData();
+	content.append('Subject', data.Subject);
+	content.append('Theme', data.Theme);
+	content.append('Sumary', data.Sumary);
+	content.append('Questions', data.Questions);
+	content.append('file', data.file);
+	console.log('other services', content);
+
 	try {
-		const result = await instance.post('/uploadMaterial', data);
+		const result = await instance.post('/uploadMaterial', content);
 		return result;
 	} catch (error) {
 		console.log(error);

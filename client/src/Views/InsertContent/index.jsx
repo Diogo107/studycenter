@@ -12,6 +12,7 @@ class index extends Component {
 		await this.setState({
 			[name]: files[0],
 		});
+		console.log(this.state);
 	};
 
 	handleInputChange = async (event) => {
@@ -24,9 +25,9 @@ class index extends Component {
 
 	saveContent = async (event) => {
 		event.preventDefault();
-		let { Subject, Theme, Year, Sumary, Questions } = this.state;
-		console.log({ Subject, Theme, Year, Sumary, Questions });
-		if (Sumary == undefined || Questions == undefined) {
+		let { Subject, Theme, Year, Sumary, Questions, file } = this.state;
+		console.log({ Subject, Theme, Year, Sumary, Questions, file });
+		if (Sumary == undefined && Questions == undefined) {
 			alert(
 				'Ohhh pateta, não escreveste nem resumos nem questões...corrige lá isso de uma vez....'
 			);
@@ -37,6 +38,7 @@ class index extends Component {
 				Year,
 				Sumary,
 				Questions,
+				file,
 			});
 			this.setState({
 				Subject: '',
@@ -44,6 +46,7 @@ class index extends Component {
 				Year: '',
 				Sumary: '',
 				Questions: '',
+				file: null,
 			});
 			this.props.history.push('subjects');
 		}
@@ -52,7 +55,11 @@ class index extends Component {
 	render() {
 		return (
 			<div className="Insert__Content">
-				<Form onSubmit={this.saveContent} encType="multipart/form-data">
+				<Form
+					onSubmit={this.saveContent}
+					method="pot"
+					enctype="multipart/form-data"
+				>
 					<Input
 						value={this.state.Subject}
 						placeholder="Disciplina"
@@ -91,6 +98,7 @@ class index extends Component {
 						placeholder="Questões"
 						onChange={this.handleInputChange}
 					/>
+					<Input type="file" name="file" onChange={this.handleInputFile} />
 					<Button type="submit">Guardar</Button>
 				</Form>
 			</div>
