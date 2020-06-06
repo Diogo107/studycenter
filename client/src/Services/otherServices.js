@@ -159,8 +159,6 @@ const uploadMaterial = async (data) => {
 	content.append('Sumary', data.Sumary);
 	content.append('Questions', data.Questions);
 	content.append('file', data.file);
-	console.log('other services', content);
-
 	try {
 		const result = await instance.post('/uploadMaterial', content);
 		return result;
@@ -169,6 +167,19 @@ const uploadMaterial = async (data) => {
 	}
 };
 export { uploadMaterial };
+
+const updatePicture = async (data) => {
+	console.log('other services', data);
+	const content = new FormData();
+	content.append('file', data);
+	try {
+		const result = await instance.post('/updatePicture', content);
+		return result;
+	} catch (error) {
+		console.log(error);
+	}
+};
+export { updatePicture };
 
 const getMaterial = async () => {
 	const result = await instance.get('/getMaterial');

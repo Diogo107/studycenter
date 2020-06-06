@@ -87,17 +87,8 @@ router.post(
 	uploader.single('file'),
 	async (req, res, next) => {
 		const { Subject, Theme, Year, Sumary, Questions } = req.body;
-		/* console.log({ Subject, Theme, Year, Sumary, Questions });
-		console.log(req.body);
-		console.log(req.file); */
 		const { file } = req;
 		const Attachment = file.url;
-		console.log('?????????????????????????', file.url, Theme);
-		/* await pipeline(
-			file.stream,
-			fs.createWriteStream(`${__dirname}/../public/images/${fileName}`)
-		); */
-
 		try {
 			const result = await Material.create({
 				Subject,
@@ -107,6 +98,23 @@ router.post(
 				Questions,
 				Attachment,
 			});
+			res.json({ result });
+		} catch (error) {
+			console.log(error);
+		}
+	}
+);
+
+router.post(
+	'/updatePicture',
+	uploader.single('file'),
+	async (req, res, next) => {
+		const { file } = req;
+		const picture = file.url;
+		console.log('?????????????????????????', req.user._id);
+		const id = req.user._id;
+		try {
+			const result = await User.findByIdAndUpdate(id, { picture });
 			res.json({ result });
 		} catch (error) {
 			console.log(error);

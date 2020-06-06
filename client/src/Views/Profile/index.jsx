@@ -10,7 +10,7 @@ import Academic from './../../asset/images/contactos/academic.png';
 import Key from './../../asset/images/padlock.png';
 //Services
 import Context from '../../Store/context';
-import { updatePassword } from '../../Services/otherServices';
+import { updatePassword, updatePicture } from '../../Services/otherServices';
 
 class index extends Component {
 	constructor(props) {
@@ -18,13 +18,24 @@ class index extends Component {
 		this.state = {
 			edit: false,
 			saved: false,
+			loading: false,
 		};
 	}
 	componentDidMount() {
 		let { name, picture, year, email } = this.props.user;
-		console.log('getting from props', { name, picture, year, email });
 		this.setState({ name, picture, year, email });
 	}
+
+	handleInputFile = async (event) => {
+		this.setState({ loading: true });
+		let { name, files } = event.target;
+		await this.setState({
+			[name]: files[0],
+		});
+		let picture = await updatePicture(this.state.file);
+		await this.setState({ picture });
+		this.setState({ loading: false });
+	};
 
 	handleInputChange = async (event) => {
 		const value = event.target.value;
@@ -32,7 +43,6 @@ class index extends Component {
 		await this.setState({
 			[inputName]: value,
 		});
-		console.log(this.state);
 	};
 
 	changePassword = async (event) => {
@@ -43,7 +53,6 @@ class index extends Component {
 			passwordHash,
 			id,
 		});
-		console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
 		this.setState({ edit: false, saved: true });
 		setTimeout(() => {
 			this.setState({ saved: false });
@@ -57,7 +66,26 @@ class index extends Component {
 					<>
 						<div className="Profile__Left">
 							<div>
-								<img src={this.props.user.picture} alt="image" />
+								{(!this.state.loading && (
+									<>
+										<img src={this.props.user.picture} alt="image" />
+										<Label for="change__pincture">
+											<img src={Edit} />
+										</Label>
+										<Input
+											id="change__pincture"
+											type="file"
+											name="file"
+											onChange={this.handleInputFile}
+										/>
+									</>
+								)) || (
+									<div className="load-3">
+										<div className="line"></div>
+										<div className="line"></div>
+										<div className="line"></div>
+									</div>
+								)}
 							</div>
 							<div className="Profile__Left__Text">
 								<div>

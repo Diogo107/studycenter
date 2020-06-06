@@ -57,7 +57,7 @@ class index extends Component {
 			<div className="Insert__Content">
 				<Form
 					onSubmit={this.saveContent}
-					method="pot"
+					method="post"
 					enctype="multipart/form-data"
 				>
 					<Input
